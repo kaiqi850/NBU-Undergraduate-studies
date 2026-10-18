@@ -1,0 +1,79 @@
+# Copyright 2021 Huawei Technologies Co., Ltd
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ==============================================================================
+
+# Yolov4 configs
+base_config: ['../base/datasets/yolo_coco_dataset.yaml',
+              '../base/models/yolov4_cspdarknet53.yaml',
+              '../base/schedules/schedule.yaml']
+
+train:
+  # Path for local
+  load_path: ""
+  device_target: "Ascend"
+  per_batch_size: 4
+  pretrained_backbone: ""
+  resume_yolov4: ""
+  pretrained_checkpoint: ""
+  filter_weight: False
+  max_epoch: 320
+  ckpt_path: "outputs/"
+  ckpt_interval: -1
+  rank_save_ckpt_flag: 1
+  is_distributed: False
+  rank: 0
+  group_size: 1
+  run_eval: False
+  save_best_ckpt: True
+  checkpoint_filter_list: [ 'feature_map.backblock0.conv6.weight', 'feature_map.backblock0.conv6.bias',
+                            'feature_map.backblock1.conv6.weight', 'feature_map.backblock1.conv6.bias',
+                            'feature_map.backblock2.conv6.weight', 'feature_map.backblock2.conv6.bias',
+                            'feature_map.backblock3.conv6.weight', 'feature_map.backblock3.conv6.bias' ]
+
+  context:
+    mode: 0 #0--Graph Mode; 1--Pynative Mode
+    enable_auto_mixed_precision: True
+    device_target: "Ascend"
+    save_graphs: False
+    device_id: 0
+
+  need_profiler: 0
+  profiler:
+    is_detail: True
+    is_show_op_path: True
+  parallel:
+    parallel_mode: "data_parallel"
+    gradients_mean: True
+    device_num: 1
+  ckpt:
+    max_num: 10
+
+eval:
+  # Eval options
+  pretrained: "outputs/2021-06-26_time_14_32_14/ckpt_0/0-1_7328.ckpt"
+  log_path: "eval/"
+  test_nms_thresh: 0.45
+  test_img_shape: [ 608, 608 ]
+  eval_ignore_threshold: 0.001
+  batch_size: 1
+  ann_val_file: "/home/dataset/coco/annotations/instances_val2017.json"
+  device_target: "Ascend"
+
+export:
+  # Export options
+  device_target: "Ascend"
+  device_id: 0
+  ckpt_file: "outputs/2021-06-24_time_22_22_21/ckpt_0/0-9_43966.ckpt"
+  file_name: "yolov4"
+  file_format: "AIR"

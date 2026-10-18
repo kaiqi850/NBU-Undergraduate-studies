@@ -1,0 +1,12 @@
+learning_rate: # faster-rcnn
+  lr_scheduler: "dynamic_lr"
+  lr: 0.005
+  warmup_steps: 500
+  warmup_ratio: 0.0625
+  max_epoch: 24
+
+optimizer: # faster-rcnn
+  type: SGD
+  momentum: 0.91
+  weight_decay: 0.00001
+  loss_scale: 256

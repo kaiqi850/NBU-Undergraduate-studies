@@ -1,0 +1,179 @@
+# Copyright 2021 Huawei Technologies Co., Ltd
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ==============================================================================
+
+# model settings
+model:
+  type: MaskRCNN
+  config: &config
+    batch_size: 2
+    num_gts: 128
+    test_batch_size: 2
+    img_height: 768
+    img_width: 1280
+    num_classes: 81
+    num_bboxes: 245520
+    mask_shape: [28, 28]
+    with_mask: True
+  backbone:
+    type: ResNet
+    depth: 50
+    in_channels: [64, 256, 512, 1024]
+    out_channels: [256, 512, 1024, 2048]
+    weights_update: False
+  neck:
+    type: FPN
+    in_channels: [256, 512, 1024, 2048]
+    out_channels: 256
+    num_outs: 5
+  rpn_head:
+    type: RPNHead
+    in_channels: 256
+    feat_channels: 256
+    config:
+      <<: *config
+    feature_shapes:
+      - [192, 320]
+      - [96, 160]
+      - [48, 80]
+      - [24, 40]
+      - [12, 20]
+    batch_size: 2
+    num_anchors: 3
+    cls_out_channels: 1
+    anchor_generator:
+      type: AnchorGenerator
+      scales: [8]
+      ratios: [0.5, 1.0, 2.0]
+      strides: [4, 8, 16, 32, 64]
+    loss_cls:
+      type: CrossEntropyLoss
+      use_sigmoid: True
+      loss_weight: 1.0
+    loss_bbox:
+      type: L1Loss
+      loss_weight: 1.0
+
+  roi_head:
+    type: StandardRoIHead
+    config:
+      <<: *config
+    bbox_roi_extractor:
+      type: SingleRoIExtractor
+      roi_layer:
+        type: RoIAlign
+        output_size: 7
+        mask_out_size: 14
+        sample_num: 2
+        sampling_ratio: 0
+      out_channels: 256
+      featmap_strides: [4, 8, 16, 32]
+    bbox_head:
+      type: Shared2FCBBoxHead
+      in_channels: 256
+      fc_out_channels: 1024
+      roi_feat_size: 7
+      num_classes: 81
+      bbox_coder:
+        type: DeltaXYWHBBoxCoder
+        target_means: [0.0, 0.0, 0.0, 0.0]
+        target_stds: [0.1, 0.1, 0.2, 0.2]
+      reg_class_agnostic: False,
+      loss_cls:
+        type: CrossEntropyLoss
+        use_sigmoid: False
+        loss_weight: 1.0
+      loss_bbox:
+        type: L1Loss
+        loss_weight: 1.0
+  # model training and testing settings
+  train_cfg:
+    batch_size: 2
+    activate_num_classes: 2
+    use_sigmoid_cls: True
+    rpn:
+      assigner:
+        type: MaxIoUAssigner
+        pos_iou_thr: 0.7
+        neg_iou_thr: 0.3
+        min_pos_iou: 0.3
+        match_low_quality: True
+        ignore_iof_thr: -1
+      sampler:
+        type: RandomSampler
+        num_expected_neg: 256
+        num_expected_pos: 128
+    proposal:
+      nms_pre: 2000
+      min_bbox_size: 0
+      nms_thr: 0.7
+      nms_post: 2000
+      nms_across_levels: False
+      max_num: 2000
+      fpn_num_outs: 5
+      img_height: 768
+      img_width: 1280
+      use_sigmoid_cls: True
+    rcnn:
+      num_bboxes_stage2: 2000
+      num_expected_pos_stage2: 128
+      rcnn_in_channels: 256
+      rcnn_loss_cls_weight: 1
+      rcnn_loss_reg_weight: 1
+      rcnn_fc_out_channels: 1024
+      rcnn_mask_out_channels: 256
+      assigner:
+        type: MaxIoUAssigner
+        pos_iou_thr: 0.5
+        neg_iou_thr: 0.5
+        min_pos_iou: 0.5
+        match_low_quality: False
+        ignore_iof_thr: -1
+      sampler:
+        type: RandomSampler
+        num_expected_pos: 128
+        num_expected_neg: 512
+        num_expected_total: 512
+        add_gt_as_proposals: True
+      pos_weight: -1
+      debug: False
+  test_cfg:
+    num_classes: 81
+    test_batch_size: 2
+    rpn:
+      nms_pre: 1000
+      max_per_img: 1000
+      nms:
+        type: nms
+        iou_threshold: 0.7
+      min_bbox_size: 0
+    rcnn:
+      score_thr: 0.05
+      nms:
+        type: nms
+        iou_threshold: 0.5
+      max_per_img: 100
+    proposal:
+      nms_pre: 1000
+      min_bbox_size: 0
+      nms_thr: 0.7
+      nms_post: 2000
+      # nms_across_levels: False
+      max_num: 1000
+      fpn_num_outs: 5
+      img_height: 768
+      img_width: 1280
+      use_sigmoid_cls: True
+    # soft-nms is also supported for rcnn testing
+    # e.g., nms=dict(type='soft_nms', iou_threshold=0.5, min_score=0.05)

@@ -1,0 +1,27 @@
+model:
+  type: CenterFace
+  enable_modelarts: False
+  backbone:
+    type: MobileNetV2
+    input_channel: 32
+    width_mult: 1.0
+    round_nearest: 8
+    # inverted_residual_setting: ''
+  neck:
+    type: CenterFaceNeck
+    in_channels: [24, 32, 96, 320]
+    out_dim: 64
+  bbox_head:
+    type: CenterFaceHead
+    loss_cls:
+      type: FocalLoss
+      loss_weight: 1.0
+    loss_reg:
+      type: SmoothL1LossNew
+      loss_weight: 0.1
+    loss_off:
+      type: SmoothL1LossNew
+      loss_weight: 1.0
+    loss_cmask:
+      type: SmoothL1LossNewCMask
+      loss_weight: 0.1

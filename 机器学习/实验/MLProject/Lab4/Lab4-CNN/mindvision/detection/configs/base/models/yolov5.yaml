@@ -1,0 +1,60 @@
+# Copyright 2021 Huawei Technologies Co., Ltd
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ==============================================================================
+
+# model settings
+model:
+    type: YOLOv5
+    backbone:
+        type: YOLOv5Backbone
+        in_channels: [32, 64, 128, 256, 512]
+        out_channels: [64, 128, 256, 512, 1024]
+        layer_nums: [1, 2, 8, 8, 4]
+    neck:
+        type: YOLOv5Neck
+        backbone_shape: [64, 128, 256, 512, 1024]
+        out_channel: 255 # 3 * (num_classes + 5)
+    bbox_head:
+        type: YOLOv5Head
+        l_scale_x_y: 1.05
+        l_offset_x_y: 0.025
+        m_scale_x_y: 1.1
+        m_offset_x_y: 0.05
+        s_scale_x_y: 1.2
+        s_offset_x_y: 0.1
+        anchor_generator:
+            type: YoloAnchorGenerator
+            anchor_scales: [ [ 12, 16 ],
+                             [ 19, 36 ],
+                             [ 40, 28 ],
+                             [ 36, 75 ],
+                             [ 76, 55 ],
+                             [ 72, 146 ],
+                             [ 142, 110 ],
+                             [ 192, 243 ],
+                             [ 459, 401 ] ]
+            anchor_mask: [ [6, 7, 8],
+                           [3, 4, 5],
+                           [0, 1, 2] ]
+
+        loss_cls:
+            type: YOLOv5ClassLoss
+
+        loss_confidence:
+            type: YOLOv5ConfidenceLoss
+
+        num_classes: 80
+        ignore_threshold: 0.7
+        is_training: True
+

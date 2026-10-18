@@ -1,0 +1,48 @@
+train:
+  load_path: ""
+  backbone_path: ""
+  filter_weight: False
+  max_epoch: 20
+  ckpt_path: ""
+  ckpt_interval: -1
+  rank_save_ckpt_flag: 1
+  is_distributed: True
+  rank: 0
+  run_eval: False
+  save_best_ckpt: True
+
+  context:
+    mode: 0 #0--Graph Mode; 1--Pynative Mode
+    enable_auto_mixed_precision: True
+    device_target: "Ascend"
+    save_graphs: False
+    device_id: 0
+
+  need_profiler: 0
+  profiler:
+    is_detail: True
+    is_show_op_path: True
+
+  parallel:
+    parallel_mode: "data_parallel"
+    gradients_mean: True
+    device_num: 1
+
+  ckpt:
+    max_num: 10
+
+  dataset_sink_mode: True
+
+eval:
+  ckpt_path: ""
+  ann_file: ""
+  context:
+    mode: 0 #0--Graph Mode; 1--Pynative Mode
+    device_target: "Ascend"
+    save_graphs: False
+    device_id: 0
+  test_batch_size: 2
+  num_classes: 81
+
+train_wrapper:
+  type: TrainingWrapper

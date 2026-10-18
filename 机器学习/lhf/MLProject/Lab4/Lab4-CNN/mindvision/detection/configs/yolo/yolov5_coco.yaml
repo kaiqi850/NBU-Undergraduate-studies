@@ -1,0 +1,97 @@
+# Copyright 2021 Huawei Technologies Co., Ltd
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ==============================================================================
+
+# yolov5 configs
+base_config: ['../base/datasets/yolov5_coco_dataset.yaml',
+              '../base/models/yolov5.yaml',
+              '../base/schedules/yolov5_schedule.yaml']
+
+train:
+    # Path for local
+    load_path: ""
+    device_target: "Ascend"
+    per_batch_size: 16
+    pretrained_backbone: ""
+    resume_yolov5: ""
+    pretrained_checkpoint: ""
+    filter_weight: False
+    max_epoch: 300
+    ckpt_path: "./outputs/"
+    ckpt_interval: -1
+    rank_save_ckpt_flag: 1
+    is_distributed: True
+    rank: 0
+    group_size: 1
+    run_eval: False
+    save_best_ckpt: True
+    dataset_sink_mode: True
+    network_data_type:
+        backbone: float32
+        neck: float32
+
+    context:
+        mode: 0 #0--Graph Mode; 1--Pynative Mode
+        enable_auto_mixed_precision: True
+        device_target: "Ascend"
+        save_graphs: False
+        device_id: 0
+
+    need_profiler: 0
+    profiler:
+        is_detail: True
+        is_show_op_path: True
+    parallel:
+        parallel_mode: "data_parallel"
+        gradients_mean: True
+        device_num: 1
+    ckpt:
+        max_num: 10
+
+eval:
+    # Eval options
+    pretrained: "/home/iscas_test1/yolov5shape640_ascend_v130_coco2017_official_cv_bs8_acc36.6.ckpt"
+    log_path: "./output/eval/"
+    test_nms_thresh: 0.45
+    test_img_shape: [ 640, 640 ]
+    eval_ignore_threshold: 0.001
+    batch_size: 1
+    ann_val_file: "/home/iscas_test1/dataset/coco/annotations/instances_val2017.json"
+    device_target: "Ascend"
+    ckpt_path: ""
+    network_data_type:
+        backbone: float32
+        neck: float32
+    context:
+        mode: 0 #0--Graph Mode; 1--Pynative Mode
+        device_target: "Ascend"
+        save_graphs: False
+        device_id: 0
+    detection_engine:
+        type: YOLOv5DetectionEngine
+        ignore_threshold: 0.001
+        outputs_dir: "./output/eval/"
+        ann_file: "/home/iscas_test1/dataset/coco/annotations/instances_val2017.json"
+        nms_thresh: 0.6
+        multi_label: True
+        multi_label_thresh: 0.1
+
+
+export:
+    # Export options
+    device_target: "Ascend"
+    device_id: 0
+    ckpt_file: "outputs/2021-06-24_time_22_22_21/ckpt_0/0-9_43966.ckpt"
+    file_name: "yolov5"
+    file_format: "AIR"

@@ -1,0 +1,114 @@
+data_loader:
+    train:
+        dataset:
+            type: GeneratorDataset
+            source:
+                type: COCOSsdDataset
+                root: "/data/dataset/coco/train2017"
+                ann_file: "/data/dataset/coco/annotations/instances_train2017.json"
+            column_names: [ "img_id", "image","annotation" ]
+            num_parallel_workers: 6
+            num_shards: 1
+            shard_id: 0
+            shuffle: True
+        maps:
+            operations:
+                -
+                    - type: Format
+                    - type: Ssdpreprocess
+                -
+                    - type: Call_RandomColorAdjust
+                      brightness: 0.4
+                      contrast: 0.4
+                      saturation: 0.4
+                    - type: Normalize_ssd
+                      mean: [ 123.675, 118.575, 103.53 ]
+                      std: [ 58.395, 57.12, 57.375 ]
+                    - type: HWC2CHW
+
+            configs:
+                - input_columns: ["img_id", "image","annotation"]
+                  output_columns: ["image", "box", "label", "num_match"]
+                  column_order: ["image", "box", "label", "num_match"]
+                  python_multiprocessing: True
+                - input_columns: ["image"]
+                  python_multiprocessing: True
+        batch:
+            batch_size: 32
+            drop_remainder: True
+    eval:
+        dataset:
+            type: GeneratorDataset
+            source:
+                type: COCOSsdDataset
+                root: "/data/dataset/coco/val2017"
+                ann_file: "/data/dataset/coco/annotations/instances_val2017.json"
+                is_training: False
+            column_names: ["img_id", "image", "annotation" ]
+            num_parallel_workers: 1
+            num_shards: 1
+            shard_id: 0
+            shuffle: False
+        maps:
+            operations:
+                -
+                    - type: Format
+                    - type: ResizewithoutGT
+                -
+                    - type: Normalize_ssd
+                      mean: [123.675, 118.575, 103.53]
+                      std: [58.395, 57.12, 57.375]
+                    - type: HWC2CHW
+            configs:
+                - input_columns: ["img_id", "image","annotation"]
+                  output_columns: ["img_id","image","image_shape"]
+                  column_order: ["img_id","image","image_shape"]
+                  python_multiprocessing: False
+                  num_parallel_workers: 1
+                - input_columns: ["image"]
+                  python_multiprocessing: False
+                  num_parallel_workers: 1
+        batch:
+            batch_size: 1
+            drop_remainder: True
+        repeat:
+            repeat_num: 10
+    infer:
+        dataset:
+            type: GeneratorDataset
+            source:
+                type: LoadImgFromFile
+                img_file: "/home/linbert/mindvision/mindvision/detection/pictures"
+            column_names: ["image", "image_id","annotation"]
+            num_parallel_workers: 1
+        map:
+            operations:
+                - type: Format
+
+                - type: ImgRgbToBgr
+                - type: RescaleWithoutGT
+                  img_height: 768
+                  img_width: 1280
+                - type: Normalize
+                  mean: [123.675, 116.28, 103.53]
+                  std: [58.395, 57.12, 57.375]
+                  to_rgb: True
+                - type: Transpose
+                  # perm: (2, 0, 1) # TODO
+                - type: Collect
+                  output_orders: ["image", "image_id", "image_shape"]
+                  output_type_dict:
+                      image: float32
+                      image_shape: float32
+            input_columns: ["image", "image_id","annotation"]
+            output_columns: ["image", "image_id", "image_shape"]
+            column_order: ["image", "image_id", "image_shape"]
+            num_parallel_workers: 1
+        batch:
+          batch_size: 1
+          drop_remainder: True
+        prefix: "id2pic.json"
+
+    prefetch_size: 8
+    thread_num: 0
+    group_size: 1

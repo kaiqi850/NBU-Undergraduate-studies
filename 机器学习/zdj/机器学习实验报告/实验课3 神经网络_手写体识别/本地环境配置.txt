@@ -1,0 +1,1 @@
+https://www.mindspore.cn/install#%E5%AE%89%E8%A3%85gcc

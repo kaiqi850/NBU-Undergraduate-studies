@@ -1,0 +1,46 @@
+
+
+model:
+  type: SSD
+  config: &config
+    # Training options
+    model_name: "ssd_mobilenet_v1_fpn"
+    img_shape: [ 640, 640 ]
+    num_ssd_boxes: 51150
+    match_threshold: 0.5
+    nms_threshold: 0.6
+    min_score: 0.1
+    max_boxes: 100
+    all_reduce_fusion_config: [ 29, 58, 89 ]
+
+    # network
+    num_default: [ 6, 6, 6, 6, 6 ]
+    extras_in_channels: [ 256, 512, 1024, 256, 256 ]
+    extras_out_channels: [ 256, 256, 256, 256, 256 ]
+    extras_strides: [ 1, 1, 2, 2, 2, 2 ]
+    extras_ratio: [ 0.2, 0.2, 0.2, 0.25, 0.5, 0.25 ]
+    feature_size: [ 80, 40, 20, 10, 5 ]
+    min_scale: 0.2
+    max_scale: 0.95
+    aspect_ratios: [ [ 2, 3 ], [ 2, 3 ], [ 2, 3 ], [ 2, 3 ], [ 2, 3 ], [ 2, 3 ] ]
+    steps: [ 8, 16, 32, 64, 128 ]
+    prior_scaling: [ 0.1, 0.2 ]
+    gamma: 2.0
+    alpha: 0.25
+    num_addition_layers: 4
+    use_anchor_generator: True
+    use_global_norm: True
+
+    features_only: True
+    num_classes: 81
+
+  backbone:
+    type: MobileNetV1
+    config:
+      <<: *config
+  neck:
+    type: MobileNetV1FPN
+  bbox_head:
+    type: WeightSharedMultiBox
+    config:
+      <<: *config

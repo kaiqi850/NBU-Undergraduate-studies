@@ -1,0 +1,64 @@
+
+base_config: ['../base/datasets/ssd_dataset_mobilenetv1_fpn.yaml',
+              '../base/models/ssd_mobilenetv1_fpn.yaml',
+              '../base/schedules/schedule_ssd.yaml']
+train:
+
+    load_path: ""
+    backbone_path: "/home/iscas_zhang2/mobilenetv1_ascend_v130_imagenet2012_official_cv_bs256_acc0.ckpt"
+    device_target: "Ascend"
+    pretrained_checkpoint: "/home/iscas_zhang2/mobilenetv1_ascend_v130_imagenet2012_official_cv_bs256_acc0.ckpt"
+    filter_weight: False
+    rank_save_ckpt_flag: 1
+    rank: 0
+    run_eval: False
+    save_best_ckpt: True
+    ckpt_path: "outputs/"
+    is_distributed: True
+    context:
+        mode: 0
+        enable_auto_mixed_precision: True
+        device_target: "Ascend"
+        save_graphs: False
+        device_id: 0
+
+    ckpt_interval: -1
+    dataset_sink_mode: True
+    need_profiler: 0
+    profiler:
+        is_detail: True
+        is_show_op_path: True
+    parallel:
+        parallel_mode: "data_parallel"
+        gradients_mean: True
+        device_num: 1
+    max_epoch: 60
+    ckpt:
+        max_num: 10
+
+eval:
+
+    #ckpt_path: "/home/iscas_zhang2/mindvision/mindvision/detection/outputs/2021-11-14_time_11_37_53/ckpt_0/0-500_458.ckpt"
+    ckpt_path: "/home/iscas_zhang2/mindvision/mindvision/detection/outputs/outputs/2021-12-27_time_16_54_17/ckpt_4/4-60_458.ckpt"
+
+    #ckpt_path: "/home/iscas_zhang2/mindvision/mindvision/detection/outputs/outputs/2021-12-24_time_16_31_37/ckpt_5/5-498_458.ckpt"
+    #ckpt_path: "/home/iscas_zhang2/mindvision-eval/mindvision/detection/3-500_458.ckpt"
+
+    detection_engine:
+        type: SsdDetectionEngine
+        ann_file: "/data/dataset/coco/annotations/instances_val2017.json"
+        test_batch_size: 1
+        num_classes: 81
+        min_score: 0.1
+        nms_threshold: 0.6
+        max_boxes: 100
+
+
+    context:
+        mode: 0 #0--Graph Mode; 1--Pynative Mode
+        device_target: "Ascend"
+        save_graphs: False
+        device_id: 0
+
+train_wrapper:
+    type: TrainingWrapperssd

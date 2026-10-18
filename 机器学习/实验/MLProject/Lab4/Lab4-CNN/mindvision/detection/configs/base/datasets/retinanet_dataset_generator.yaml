@@ -1,0 +1,152 @@
+# Copyright 2021 Huawei Technologies Co., Ltd
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ==============================================================================
+
+data_loader:
+  train:
+    dataset:
+      type: GeneratorDataset
+      source:
+        type: COCODataset
+        root: "/home/iscas_zhang1/data/coco/train2017"
+        ann_file: "/home/iscas_zhang1/data/coco/annotations/instances_train2017.json"
+        remove_images_without_annotations: True
+        with_mask: False
+      column_names: ["img_id", "image", "annotation"]
+      num_shards: 1
+      shard_id: 0
+      num_parallel_workers: 8
+      shuffle: True
+    maps:
+      operations:
+        - - type: RetinaFormat
+          - type: RandomCrop
+          - type: ImgResize
+            img_height: 600
+            img_width: 600
+          - type: _RandomFlip
+            flip_ratio: 0.5
+            is_normalized: True
+          - type: BoxEncode
+            img_shape: [600, 600]
+            steps: [8, 16, 32, 64, 128]
+            anchor_size: [32, 64, 128, 256, 512]
+            feature_size: [75, 38, 19, 10, 5]
+            scales: [1.,1.25992105,1.58740105]
+            aspect_ratios: [[0.5, 1.0, 2.0], [0.5, 1.0, 2.0], [0.5, 1.0, 2.0], [0.5, 1.0, 2.0], [0.5, 1.0, 2.0]]
+            num_default: [9, 9, 9, 9, 9]
+        - - type: RandomColorAdjust
+            brightness: 0.4
+            contrast: 0.4
+            saturation: 0.4
+          - type: Normalize
+            mean: [123.675, 116.28, 103.53]
+            std: [58.395, 57.12, 57.375]
+          - type: HWC2CHW
+      configs:
+        - input_columns: ["img_id", "image", "annotation"]
+          output_columns:  ["image", "image_shape", "boxes", "labels", "num_match"]
+          column_order: ["image", "image_shape", "boxes", "labels", "num_match"]
+          python_multiprocessing: True
+          num_parallel_workers: 8
+        - input_columns: ["image"]
+          num_parallel_workers: 8
+          python_multiprocessing: True
+    batch:
+      batch_size: 32
+      drop_remainder: True
+  eval:
+    dataset:
+      type: GeneratorDataset
+      source:
+        type: COCODataset
+        root: "/home/iscas_zhang1/data/coco/val2017"
+        ann_file: "/home/iscas_zhang1/data/coco/annotations/instances_val2017.json"
+        remove_images_without_annotations: True
+        filter_crowd_anno: False
+        is_training: False
+        with_mask: False
+      column_names: ["img_id", "image", "annotation"]
+      num_shards: 1
+      shard_id: 0
+      num_parallel_workers: 24
+      shuffle: False
+    maps:
+      operations:
+        - - type: RetinaFormat
+          - type: ImgResize
+            img_height: 600
+            img_width: 600
+          - type: BoxEncode
+            img_shape: [600, 600]
+            steps: [8, 16, 32, 64, 128]
+            anchor_size: [32, 64, 128, 256, 512]
+            feature_size: [75, 38, 19, 10, 5]
+            scales: [1.,1.25992105,1.58740105]
+            aspect_ratios: [[0.5, 1.0, 2.0], [0.5, 1.0, 2.0], [0.5, 1.0, 2.0], [0.5, 1.0, 2.0], [0.5, 1.0, 2.0]]
+            num_default: [9, 9, 9, 9, 9]
+            is_training: False
+        - - type: Normalize
+            mean: [123.675, 116.28, 103.53]
+            std: [58.395, 57.12, 57.375]
+          - type: HWC2CHW
+      configs:
+        - input_columns: ["img_id", "image", "annotation"]
+          output_columns: ["image", "image_shape", "default_bboxes", "image_id"]
+          column_order: ["image", "image_shape", "default_bboxes", "image_id"]
+          python_multiprocessing: False
+        - input_columns: ["image"]
+          num_parallel_workers: 24
+          python_multiprocessing: False
+    batch:
+      batch_size: 1
+      drop_remainder: True
+  infer:
+    dataset:
+      type: GeneratorDataset
+      source:
+        type: LoadImgFromFile
+        img_file: "/home/linbert/mindvision/mindvision/detection/pictures"
+      column_names: ["image", "image_id"]
+      num_parallel_workers: 1
+    map:
+      operations:
+        - type: Format
+          is_infer: True
+        - type: ImgRgbToBgr
+        - type: RescaleWithoutGT
+          img_height: 768
+          img_width: 1280
+        - type: Normalize
+          mean: [123.675, 116.28, 103.53]
+          std: [58.395, 57.12, 57.375]
+          to_rgb: True
+        - type: Transpose
+          # perm: (2, 0, 1) # TODO
+        - type: Collect
+          output_orders: ["image", "image_id", "image_shape"]
+          output_type_dict:
+            image: float32
+            image_shape: float32
+      input_columns: ["image", "image_id"]
+      output_columns: ["image", "image_id", "image_shape"]
+      column_order: ["image", "image_id", "image_shape"]
+      num_parallel_workers: 1
+    batch:
+      batch_size: 2
+      drop_remainder: True
+    prefix: "id2pic.json"
+
+  thread_num: 2
+  group_size: 1

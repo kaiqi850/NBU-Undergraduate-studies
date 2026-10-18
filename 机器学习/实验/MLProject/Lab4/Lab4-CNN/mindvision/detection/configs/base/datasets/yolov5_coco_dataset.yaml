@@ -1,0 +1,122 @@
+# Copyright 2021 Huawei Technologies Co., Ltd
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ==============================================================================
+
+# data loader settings
+data_loader:
+    train:
+        dataset:
+            type: GeneratorDataset
+            source:
+                type: COCOYolov5Dataset
+                root: "/home/iscas_test1/dataset/coco/train2017"
+                ann_file: "/home/iscas_test1/dataset/coco/annotations/instances_train2017.json"
+            sampler:
+                type: DistributedSampler
+                num_replicas: 1
+                rank: 0
+                shuffle: True
+            column_names: ["image", "annotation", "input_size", "mosaic_flag"]
+            num_parallel_workers: 4
+            python_multiprocessing: True
+        maps:
+            operations:
+                - type: MultiScaleTrans
+                  max_boxes: 150
+                  jitter: 0.3
+                  max_trial: 10
+                - type: PreprocessTrueBox
+                  anchors: [[12, 16],
+                            [19, 36],
+                            [40, 28],
+                            [36, 75],
+                            [76, 55],
+                            [72, 146],
+                            [142, 110],
+                            [192, 243],
+                            [459, 401]]
+                  anchor_mask: [[6, 7, 8],
+                                [3, 4, 5],
+                                [0, 1, 2]]
+                  num_classes: 80
+                  label_smooth: 0
+                  label_smooth_factor: 0.1
+                  iou_threshold: 0.213
+                  max_boxes: 150
+                -
+                    - type: Normalize
+                      mean: [123.675, 116.28, 103.53]
+                      std: [58.395, 57.12, 57.375]
+                    - type: HWC2CHW
+                - type: Concatenate
+            configs:
+                - num_parallel_workers: 12
+                  python_multiprocessing: True
+                  input_columns: ["image", "annotation", "input_size", "mosaic_flag"]
+                  output_columns: ["image", "annotation", "size"]
+                  column_order: ["image", "annotation", "size"]
+                - num_parallel_workers: 4
+                  python_multiprocessing: False
+                  input_columns: ["annotation", "size"]
+                  output_columns: ["annotation", "bbox1", "bbox2", "bbox3", "gt_box1", "gt_box2", "gt_box3"]
+                  column_order: ["image",  "bbox1", "bbox2", "bbox3", "gt_box1", "gt_box2", "gt_box3"]
+                - num_parallel_workers: 4
+                - num_parallel_workers: 4
+        batch:
+            batch_size: 16
+            drop_remainder: True
+            num_parallel_workers: 4
+
+    eval:
+        dataset:
+            type: GeneratorDataset
+            source:
+                type: COCOYolov5Dataset
+                root: "/home/iscas_test1/dataset/coco/val2017"
+                ann_file: "/home/iscas_test1/dataset/coco/annotations/instances_val2017.json"
+                remove_images_without_annotations: False
+                filter_crowd_anno: False
+                is_training: False
+            sampler:
+                type: DistributedSampler
+                num_replicas: 1
+                rank: 0
+                shuffle: False
+            column_names: [ "image", "image_id" ]
+            num_parallel_workers: 8
+        map:
+            operations:
+                - type: Format
+                  is_infer: True
+                - type: PilResize
+                  resize_size: [640, 640]
+                - type: StaticNormalize
+                - type: ConvertGrayToColor
+                - type: HWC2CHW
+                - type: Collect
+                  output_orders: ["image", "image_id", 'image_shape']
+                  output_type_dict:
+                    image: float32
+                    image_id: int32
+                    image_shape: int32
+            input_columns: ["image", "image_id"]
+            output_columns: ["image", "image_id", 'image_shape']
+            column_order: ["image", "image_id", 'image_shape']
+            num_parallel_workers: 8
+        batch:
+            batch_size: 1
+            drop_remainder: True
+
+    thread_num: 1
+    group_size: 1

@@ -1,0 +1,87 @@
+data_loader:
+    train:
+        dataset:
+            type: GeneratorDataset
+            source:
+                type: WiderfaceDataset
+                label_path: '/home/iscas_zhang3/dataset/widerface/train/label.txt'
+            column_names: ["image", "annotation"]
+            num_parallel_workers: 8
+            shuffle: True
+            num_shards: 1
+            shard_id: 0
+        map:
+             operations:
+                - type: WiderFaceFormat
+                - type: RandomCropRetinaface
+                - type: RetinafaceBboxPreprocess
+                  match_thresh: 0.35
+                  variance: [0.1, 0.2]
+                  image_size: 840
+                  anchor: [[16, 32], [64, 128], [256, 512]]
+                  step: [8, 16, 32]
+                  clip: False
+                - type: _Normalize
+                  mean: [123.675, 116.28, 103.53]
+                  std: [1.000, 1.000, 1.000]
+                - type: Transpose
+                - type: Collect
+                  output_orders: ["image", "truths", "conf", "landm"]
+                  output_type_dict:
+                      image: float32
+                      truths: float32
+                      conf: float32
+                      landm: float32
+             input_columns: ["image", "annotation"]
+             output_columns: ["image", "truths", "conf", "landm"]
+             column_order: ["image", "truths", "conf", "landm"]
+             python_multiprocessing: True
+             #num_parallel_workers: 1
+        batch:
+            batch_size: 8
+            drop_remainder: True
+
+    eval:
+        dataset:
+            type: GeneratorDataset
+            source:
+                type: WiderfaceDataset
+                label_path: '/home/iscas_zhang3/dataset/widerface/val/label.txt'
+                eval_imageid_file: "eval_imageid_file.json"
+                is_training: False
+            column_names: ["image", "annotation"]
+            num_parallel_workers: 8
+        map:
+            operations:
+                - type: EvalFormat
+                - type: EqualProportionResize
+                  target_size: 1600
+                  max_size: 2176
+                - type: RetinafaceBboxPreprocess
+                  image_size: 2176
+                  anchor: [ [ 16, 32 ], [ 64, 128 ], [ 256, 512 ] ]
+                  step: [ 8, 16, 32 ]
+                  clip: False
+                - type: Normalize
+                  std: [1.000, 1.000, 1.000]
+                - type: Transpose
+                - type: Collect
+                  output_orders: ["image", "resize", "scale", "priors", "image_id"]
+                  output_type_dict:
+                      image: float32
+                      scale: float32
+                      resize: float32
+                      priors: float32
+                      image_id: int32
+            input_columns: ["image", "annotation"]
+            output_columns: ["image", "resize", "scale", "priors", "image_id"]
+            column_order: ["image", "resize", "scale", "priors", "image_id"]
+            python_multiprocessing: True
+            #num_parallel_workers: 1
+        batch:
+            batch_size: 1
+            drop_remainder: True
+
+    prefetch_size: 8
+    thread_num: 0
+    group_size: 1

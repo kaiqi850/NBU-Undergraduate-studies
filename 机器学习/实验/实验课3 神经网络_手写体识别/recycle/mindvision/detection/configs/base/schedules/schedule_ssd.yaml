@@ -1,0 +1,42 @@
+# Copyright 2021 Huawei Technologies Co., Ltd
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ==============================================================================
+
+learning_rate:
+    lr_scheduler: "lr_ssd"
+    pre_trained_epoch_size: 0
+    # 8 卡 total : 3664
+    dataset_size: 458
+    lr: 0.05
+    #lr: 0.025
+    global_step: 0
+    lr_init: 0.01333
+    #lr_init: 0.006665
+    lr_end_rate: 0.0
+    warmup_epochs: 2
+    weight_decay: 0.00004
+    momentum: 0.9
+    ssd_vgg_bn: False
+    pretrain_vgg_bn: False
+    epoch_size: 60
+
+optimizer: # ssd
+    type: Momentum
+    momentum: 0.9
+    weight_decay: 0.00004
+    loss_scale: 1.0
+
+
+train_wrapper:
+    type: TrainingWrapperssd
