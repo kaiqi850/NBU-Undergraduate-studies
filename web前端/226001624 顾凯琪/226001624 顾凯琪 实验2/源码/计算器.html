@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css" />
+	<title>计算器</title>
+	<!-- <style>
+
+	</style> -->
+</head>
+<body>
+	<div style="background-color: #eeeeee;padding: 10px;width: min-content;border-radius: 15px;">
+		<div>
+			<script>
+			function my(id){
+				return document.getElementById(id);
+			}
+			my("an11").onclick=function(){
+			my("biao").style.display="none";
+			my("you").style.display="block";
+ 
+			}
+			my("an1").onclick=function(){
+			my("you").style.display="none";
+			my("biao").style.display="block";
+ 
+			}
+			</script>
+		</div>
+		<!--计算器-->
+		<div id="biao">
+			<input type="text" value="" placeholder="无内容" id="num"/>
+			<div>
+				<input type="button" value="(" onclick="shuz(this)" id="kuo1"/>
+				<input type="button" value=")" onclick="shuz(this)" id="kuo2"/>
+				<input type="button" value="清除" id="anq"/>
+				<input type="button" value="删" id="ans"/>
+			</div>
+			<div style="margin-top: 5px;">
+				<input type="button" value="x²" id="anf11" onclick="tes('2')"/>
+				<input type="button" value="²√x" id="anf11" onclick="tes('3')"/>
+				<input type="button" value="÷" onclick="shuz(this)" id="anf"/>
+                <input type="button" value="e" id="anf11" onclick="shuz('e')"/>
+                <input type="button" value="sin" id="anf11" onclick="tes('4')"/>
+				<input type="button" value="cos" id="anf11" onclick="tes('5')"/>
+				<input type="button" value="tan" id="anf11" onclick="tes('6')"/>
+				<input type="button" value="π" id="anf11" onclick="shuz('π')"/>
+			</div>
+			<div style="margin-top: 5px;">
+				<input type="button" value="7" onclick="shuz(this)" id="an2"/>
+				<input type="button" value="8" onclick="shuz(this)" id="an2"/>
+				<input type="button" value="9" onclick="shuz(this)" id="an2"/>
+				<input type="button" value="×" onclick="shuz(this)" id="anf"/>
+			</div>
+			<div style="margin-top: 5px;">
+				<input type="button" value="4" onclick="shuz(this)" id="an2"/>
+				<input type="button" value="5" onclick="shuz(this)" id="an2"/>
+				<input type="button" value="6" onclick="shuz(this)" id="an2"/>
+				<input type="button" value="-" onclick="shuz(this)" id="anf"/>
+			</div>
+			<div style="margin-top: 5px;">
+				<input type="button" value="1" onclick="shuz(this)" id="an2"/>
+				<input type="button" value="2" onclick="shuz(this)" id="an2"/>
+				<input type="button" value="3" onclick="shuz(this)" id="an2"/>
+				<input type="button" value="+" onclick="shuz(this)" id="anf"/>
+			</div>
+			<div style="margin-top: 5px;">
+				<input type="button" value="#" id="anf111"/>
+				<input type="button" value="0" onclick="shuz(this)" id="an2"/>
+				<input type="button" value="." onclick="shuz(this)" id="an2"/>
+				<input type="button" value="=" id="an3" onclick="deng()"/>
+			</div>
+		</div>
+		
+		<script>
+			//特殊符号处理
+			function tes(q){
+				if(q==2){
+				//计算平方
+					my("num").value=Math.pow(deng(),2);
+				}
+				if(q==3){
+				//计算开方
+					my("num").value=Math.sqrt(deng());
+				}
+				if(q==4){
+				//计算sin
+					my("num").value=Math.sin(deng());
+				}
+				if(q==5){
+				//计算cos
+					my("num").value=Math.cos(deng());
+				}
+				if(q==6){
+				//计算tan
+					my("num").value=Math.tan(deng());
+				}
+			}
+			//删除
+			my("ans").onclick=function(){
+				var shu=my("num").value;
+				my("num").value=shu.slice(0,-1)
+			}
+			//清除
+			my("anq").onclick=function(){
+				my("num").value=null;
+			}
+			//数字按键及基本运算符
+			function shuz(eee){
+				if (eee === 'π') {
+					my("num").value += Math.PI;
+				} else if (eee === 'e') {
+					my("num").value += Math.E;
+				} else {
+					my("num").value += eee.value;
+				}
+			}
+			//等于
+			function deng(){
+				var shu=my("num").value;
+				var shu = shu.replace(/×/g, '*')
+				var shu = shu.replace(/÷/g, '/')
+				my("num").value=eval(shu);
+				return eval(shu);
+			}
+		</script>
+ 
+	</div>
+</body>
+</html>

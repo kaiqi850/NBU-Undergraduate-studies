@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>纯CSS实现轮播图(手动轮播)</title>
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/manual.css">
+</head>
+
+<body>
+	<div class="banner-container">
+		<!-- 这里利用input的checked状态来为a标签添加选中状态 -->
+        <!-- 布局方式采用的是 input + a 标签，不可以添加父级，不然css无法选择到 banner-img-container -->
+		<!-- 轮播图圆点 -->
+		<input type="radio" name="radio-set" checked="checked" id="banner-control-1">
+		<a class="banner-nav-a" href="#banner01"></a>
+		<input type="radio" name="radio-set" id="banner-control-2">
+		<a class="banner-nav-a" href="#banner02"></a>
+		<input type="radio" name="radio-set" id="banner-control-3">
+		<a class="banner-nav-a" href="#banner03"></a>
+		<input type="radio" name="radio-set" id="banner-control-4">
+		<a class="banner-nav-a" href="#banner04"></a>
+		<input type="radio" name="radio-set" id="banner-control-5">
+		<a class="banner-nav-a" href="#banner05"></a>
+		<!-- 轮播图图片容器 -->
+		<div class="banner-img-container">
+			<img id="banner01" src="image/logo.png" alt="">
+			<img id="banner02" src="image/logo.png" alt="">
+			<img id="banner03" src="image/logo.png" alt="">
+			<img id="banner04" src="image/logo.png" alt="">
+			<img id="banner05" src="image/logo.png" alt="">
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>企业用户界面</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/manual.css">
+    <script src="systemTime.js"></script>
+    <script src="imgae_nav.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 10px;
+        }
+
+        .language {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        .language select {
+            padding: 5px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .head {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .head img {
+            width: 150px;
+        }
+
+        .navi {
+            background-color: #444;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-list li {
+            margin: 0 10px;
+        }
+
+        .nav-list li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            border-radius: 5px;
+        }
+
+        .nav-list li a:hover {
+            background-color: #555;
+        }
+
+        #search {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin: 0 10px;
+        }
+
+        .time {
+            color: white;
+        }
+
+        .video {
+            margin: 0px 0;
+            padding: 0px
+        }
+
+        .video img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 0px;
+        }
+
+        .video-nav {
+            background-color:white;
+            color: black;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            bottom: 0px;
+            position: fixed;
+            width: 100%;
+        }
+
+        .video-nav a {
+            color: black;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 0 10px;
+            border-radius: 5px;
+        }
+
+        .video-nav a:hover {
+            background-color: #555;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="language">
+        <label for="select">选择语言：</label>
+        <select id="select">
+            <option value="chinese">中文</option>
+            <option value="english">English</option>
+            <option value="spanish">Español</option>
+            <!-- 添加更多选项 -->
+        </select>
+    </div>
+
+    <div class="navi">
+        <ul class="nav-list navi2">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="活动.html">活动</a></li>
+            <li><a href="产品.html">产品</a></li>
+            <li><a href="商店.html">商店</a></li>
+            <li><a href="合作伙伴.html">合作伙伴</a></li>
+            <li><a href="开发者.html">开发者</a></li>
+            <li><a href="定价.html">定价</a></li>
+            <li><a href="解决方案.html">解决方案</a></li>
+            <li><a href="支持与服务.html">支持与服务</a></li>
+        </ul>
+
+        <input type="text" id="search" placeholder="搜索...">
+
+        <ul class="nav-list navi3">
+            <li><a href="文档.html">文档</a></li>
+            <li><a href="备案.html">备案</a></li>
+            <li><a href="控制台.html">控制台</a></li>
+            <li><a href="登录.html">登录</a></li>
+        </ul>
+
+        <div id="system-time" class="time"></div>
+    </div>
+
+    <div >
+        <img style="width:100%" src="image/logo4.png" alt="Logo">
+    </div>
+    <div class="video-nav">
+        <a href="#">番剧</a>
+        <a href="#">国创</a>
+        <a href="#">综艺</a>
+        <a href="#">动画</a>
+        <a href="#">鬼畜</a>
+        <a href="#">舞蹈</a>
+        <a href="#">娱乐</a>
+        <a href="#">科技</a>
+        <a href="#">美食</a>
+        <!-- 添加更多类型 -->
+    </div>
+    <div class="banner-container" style="float: left;">
+		<!-- 这里利用input的checked状态来为a标签添加选中状态 -->
+        <!-- 布局方式采用的是 input + a 标签，不可以添加父级，不然css无法选择到 banner-img-container -->
+		<!-- 轮播图圆点 -->
+		<input type="radio" name="radio-set" checked="checked" id="banner-control-1">
+		<a class="banner-nav-a" href="#banner01"></a>
+		<input type="radio" name="radio-set" id="banner-control-2">
+		<a class="banner-nav-a" href="#banner02"></a>
+		<input type="radio" name="radio-set" id="banner-control-3">
+		<a class="banner-nav-a" href="#banner03"></a>
+		<input type="radio" name="radio-set" id="banner-control-4">
+		<a class="banner-nav-a" href="#banner04"></a>
+		<input type="radio" name="radio-set" id="banner-control-5">
+		<a class="banner-nav-a" href="#banner05"></a>
+		<!-- 轮播图图片容器 -->
+		<div class="banner-img-container">
+			<img id="banner01" src="image/logo.png" alt="">
+			<img id="banner02" src="image/logo.png" alt="">
+			<img id="banner03" src="image/logo.png" alt="">
+			<img id="banner04" src="image/logo.png" alt="">
+			<img id="banner05" src="image/logo.png" alt="">
+		</div>
+	</div>
+    <div class="container" style="float: right ;width:900px;">
+        <div class="video">
+            <img src="招聘.gif" alt="Video">
+        </div>
+    </div>
+    
+</body>
+</html>

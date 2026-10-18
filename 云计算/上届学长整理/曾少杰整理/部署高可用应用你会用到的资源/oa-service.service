@@ -1,0 +1,12 @@
+[Unit]
+Description=My Spring Boot Service
+After=syslog.target
+
+[Service]
+User=root
+WorkingDirectory=/home/oasys_mysql/target/
+ExecStart=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-0.oe1.aarch64/bin/java -jar oasys.jar
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

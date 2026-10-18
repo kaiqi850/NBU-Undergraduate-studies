@@ -1,0 +1,9 @@
+图片文件：20171114010433564.jpg, 识别结果：truck
+图片文件：jr0SX2gBtU.jpg, 识别结果：ship
+图片文件：OIP-C (1).jpg, 识别结果：dog
+图片文件：OIP-C.jpg, 识别结果：truck
+图片文件：R-C (1).jpg, 识别结果：dog
+图片文件：R-C (2).jpg, 识别结果：ship
+图片文件：R-C (3).jpg, 识别结果：frog
+图片文件：R-C (4).jpg, 识别结果：frog
+图片文件：R-C.jpg, 识别结果：plane

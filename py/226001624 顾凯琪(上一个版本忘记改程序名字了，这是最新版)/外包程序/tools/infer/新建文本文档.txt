@@ -1,0 +1,1 @@
+python tools/infer/predict_system.py --image_dir=./doc/imgs/3.jpg

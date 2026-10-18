@@ -1,0 +1,141 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px;
+}
+
+/* Language Bar */
+.language {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+
+.language select {
+    padding: 5px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Header */
+.head {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.head img {
+    width: 150px;
+}
+
+/* Navigation */
+.navi {
+    background-color: #444;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-list {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list li {
+    margin: 0 10px;
+}
+
+.nav-list li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 5px;
+}
+
+.nav-list li a:hover {
+    background-color: #555;
+}
+
+/* Search Bar */
+#search {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin: 0 10px;
+}
+
+/* System Time */
+.time {
+    color: white;
+}
+
+/* Video Section */
+.video {
+    margin: 20px 0;
+}
+
+.video img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+
+.image-slider {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.slides img {
+    scroll-snap-align: start;
+    width: 100%;
+    height: auto;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    z-index: 1;
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
