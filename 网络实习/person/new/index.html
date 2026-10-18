@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的 Web 服务器主页</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #result {
+            margin-top: 20px;
+            background: white;
+            padding: 10px;
+            border: 1px solid #ccc;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>欢迎来到我的 C++ Web 服务器主页</h1>
+    <p>点击下面的按钮以发送 HTTP 请求（模拟 GET / POST / PUT / DELETE / SHUTDOWN）</p>
+
+    <button onclick="sendRequest('GET')">GET 请求</button>
+    <button onclick="sendRequest('POST')">POST 请求</button>
+    <button onclick="sendRequest('PUT')">PUT 请求</button>
+    <button onclick="sendRequest('DELETE')">DELETE 请求</button>
+    <!-- 新增关闭服务器按钮 -->
+    <button onclick="shutdownServer()">关闭服务器</button>
+
+    <div id="result">返回结果将在这里显示。</div>
+
+    <script>
+        function sendRequest(method) {
+            fetch("/", {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: method !== 'GET' ? JSON.stringify({ msg: "test_data" }) : null
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("result").innerText = method + " 返回结果:\n" + data;
+            })
+            .catch(error => {
+                document.getElementById("result").innerText = "发生错误: " + error;
+            });
+        }
+
+        // 关闭服务器的请求
+        function shutdownServer() {
+            fetch("/shutdown", {
+                method: 'POST'
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("result").innerText = "服务器已关闭：\n" + data;
+            })
+            .catch(error => {
+                document.getElementById("result").innerText = "关闭失败：" + error;
+            });
+        }
+    </script>
+</body>
+</html>

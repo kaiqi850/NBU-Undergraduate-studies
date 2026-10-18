@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>HTTP 四种操作演示</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    button { margin: 5px; }
+    input { margin: 5px; }
+  </style>
+</head>
+<body>
+  <h2>HTTP 四种基本操作：GET / POST / PUT / DELETE</h2>
+
+  <input type="text" id="itemId" placeholder="ID">
+  <input type="text" id="itemContent" placeholder="内容">
+
+  <div>
+    <button onclick="getItem()">GET（查）</button>
+    <button onclick="postItem()">POST（增）</button>
+    <button onclick="putItem()">PUT（改）</button>
+    <button onclick="deleteItem()">DELETE（删）</button>
+  </div>
+
+  <pre id="output"></pre>
+
+  <script>
+    const API_URL = 'http://localhost:3000/items'; // 假设有一个后端服务
+
+    function getItem() {
+      const id = document.getElementById('itemId').value;
+      fetch(`${API_URL}/${id}`)
+        .then(res => res.json())
+        .then(data => showOutput(data))
+        .catch(err => showOutput(err));
+    }
+
+    function postItem() {
+      const content = document.getElementById('itemContent').value;
+      fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: content })
+      })
+        .then(res => res.json())
+        .then(data => showOutput(data))
+        .catch(err => showOutput(err));
+    }
+
+    function putItem() {
+      const id = document.getElementById('itemId').value;
+      const content = document.getElementById('itemContent').value;
+      fetch(`${API_URL}/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: content })
+      })
+        .then(res => res.json())
+        .then(data => showOutput(data))
+        .catch(err => showOutput(err));
+    }
+
+    function deleteItem() {
+      const id = document.getElementById('itemId').value;
+      fetch(`${API_URL}/${id}`, { method: 'DELETE' })
+        .then(res => res.text())
+        .then(data => showOutput(data))
+        .catch(err => showOutput(err));
+    }
+
+    function showOutput(data) {
+      document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>

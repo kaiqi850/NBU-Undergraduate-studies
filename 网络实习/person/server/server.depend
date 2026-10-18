@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1652797919 source:e:\大三下学期\网络集成\socket\server\main.cpp
+	<stdio.h>
+	<io.h>
+	<bits/stdc++.h>
+	<winsock2.h>
+

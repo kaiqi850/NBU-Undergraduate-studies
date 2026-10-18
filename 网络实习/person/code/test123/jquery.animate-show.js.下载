@@ -1,0 +1,60 @@
+
+/**
+ * 鼠标点击显示漂浮层动画
+ * @RebirthisHope 
+ * @copyright 2014
+ */
+
+         (function ($) {
+            $.extend({
+					
+                tipsBox: function (options) {
+                    options = $.extend({
+						asdo: 'div', //此值决定获取top和left的方式
+                        obj: null,  //jq对象，要在哪个html标签上显示
+                        str: "",  //字符串，要显示的内容;也可以传一段html，如: "<b style='font-family:Microsoft YaHei;'>+1</b>"
+                        startSize: "12px",  //动画开始的文字大小
+                        endSize: "12px",    //动画结束的文字大小
+                        interval: 900,  //动画时间间隔
+                        color: "red",    //文字颜色
+                        callback: function () { }    //回调函数
+                    }, options);
+					
+                    $("body").append("<span class='num'>" + options.str + "</span>");
+                    var box = $(".num");
+					
+					if(options.asdo == 'img'){
+					
+					var left = options.obj.style.left.replace('px','');
+                    var top = options.obj.style.top.replace('px','');
+					
+					}else{
+					
+					var left = options.obj.offsetLeft
+                    var top = options.obj.offsetTop - options.obj.offsetHeight - 10;
+					
+					}
+				
+					left = parseInt(left);
+					top = parseInt(top);
+					
+                    box.css({
+                        "position": "absolute",
+                        "left": left + "px",
+                        "top": top + "px",
+                        "z-index": 99999,
+                        "font-size": options.startSize,
+                        "line-height": options.endSize,
+                        "color": options.color
+                    });
+                    box.animate({
+                        "font-size": options.endSize,
+                        "opacity": "0",
+                        "top": top - parseInt(options.endSize) + "px"
+                    }, options.interval, function () {
+                        box.remove();
+                        options.callback();
+                    });
+                }
+            });
+        })(jQuery);

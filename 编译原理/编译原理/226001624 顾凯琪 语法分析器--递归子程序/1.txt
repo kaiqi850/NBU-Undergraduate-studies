@@ -1,0 +1,25 @@
+program main;
+const x = 1, y=2,z=444;
+var z,x:long;xx:long;          {你好}
+a:long;
+begin
+z := z*3/2;
+read(xx,dsaf);
+write(dsaf,xx);
+if x > y
+then
+x := x+1;
+begin
+x := x+1;
+y:= xx -12;
+x := +123;
+x := (1+2);
+x:= 213 * 3 + 21/x;
+y := y/2 +2;
+begin
+while x<=10
+do
+y:=y+1
+end
+end
+end.

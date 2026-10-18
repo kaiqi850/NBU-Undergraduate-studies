@@ -1,0 +1,28 @@
+# Project: server
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o
+LINKOBJ  = main.o
+LIBS     = -L"D:/edge下载/MinGW/lib" -L"D:/edge下载/MinGW/x86_64-w64-mingw32/lib" -static-libstdc++ -static-libgcc -lws2_32
+INCS     = -I"D:/edge下载/MinGW/include" -I"D:/edge下载/MinGW/x86_64-w64-mingw32/include" -I"D:/edge下载/MinGW/lib/gcc/x86_64-w64-mingw32/11.2.0/include"
+CXXINCS  = -I"D:/edge下载/MinGW/include" -I"D:/edge下载/MinGW/x86_64-w64-mingw32/include" -I"D:/edge下载/MinGW/lib/gcc/x86_64-w64-mingw32/11.2.0/include"
+BIN      = server.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)

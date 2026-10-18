@@ -1,0 +1,43 @@
+确定参赌人数为1000人
+Rounds: 100, Bankrupt Count: 0, Bankrupt Rate: 0%
+Rounds: 200, Bankrupt Count: 0, Bankrupt Rate: 0%
+Rounds: 300, Bankrupt Count: 0, Bankrupt Rate: 0%
+Rounds: 400, Bankrupt Count: 0, Bankrupt Rate: 0%
+Rounds: 500, Bankrupt Count: 0, Bankrupt Rate: 0%
+Rounds: 600, Bankrupt Count: 0, Bankrupt Rate: 0%
+Rounds: 700, Bankrupt Count: 0, Bankrupt Rate: 0%
+Rounds: 800, Bankrupt Count: 0, Bankrupt Rate: 0%
+Rounds: 900, Bankrupt Count: 0, Bankrupt Rate: 0%
+Rounds: 1000, Bankrupt Count: 0, Bankrupt Rate: 0%
+Rounds: 1100, Bankrupt Count: 0, Bankrupt Rate: 0%
+Rounds: 1200, Bankrupt Count: 1, Bankrupt Rate: 0.1%
+Rounds: 1300, Bankrupt Count: 4, Bankrupt Rate: 0.4%
+Rounds: 1400, Bankrupt Count: 10, Bankrupt Rate: 1%
+Rounds: 1500, Bankrupt Count: 15, Bankrupt Rate: 1.5%
+Rounds: 1600, Bankrupt Count: 17, Bankrupt Rate: 1.7%
+Rounds: 1700, Bankrupt Count: 20, Bankrupt Rate: 2%
+Rounds: 1800, Bankrupt Count: 23, Bankrupt Rate: 2.3%
+Rounds: 1900, Bankrupt Count: 25, Bankrupt Rate: 2.5%
+Rounds: 2000, Bankrupt Count: 27, Bankrupt Rate: 2.7%
+
+确定赌博次数为1200次
+Players: 1000, Bankrupt Count: 2, Bankrupt Rate: 0.2%
+Players: 2000, Bankrupt Count: 20, Bankrupt Rate: 1%
+Players: 3000, Bankrupt Count: 4, Bankrupt Rate: 0.133333%
+Players: 4000, Bankrupt Count: 40, Bankrupt Rate: 1%
+Players: 5000, Bankrupt Count: 7, Bankrupt Rate: 0.14%
+Players: 6000, Bankrupt Count: 73, Bankrupt Rate: 1.21667%
+Players: 7000, Bankrupt Count: 4, Bankrupt Rate: 0.0571429%
+Players: 8000, Bankrupt Count: 58, Bankrupt Rate: 0.725%
+Players: 9000, Bankrupt Count: 19, Bankrupt Rate: 0.211111%
+Players: 10000, Bankrupt Count: 100, Bankrupt Rate: 1%
+Players: 11000, Bankrupt Count: 11, Bankrupt Rate: 0.1%
+Players: 12000, Bankrupt Count: 128, Bankrupt Rate: 1.06667%
+Players: 13000, Bankrupt Count: 16, Bankrupt Rate: 0.123077%
+Players: 14000, Bankrupt Count: 155, Bankrupt Rate: 1.10714%
+Players: 15000, Bankrupt Count: 1, Bankrupt Rate: 0.00666667%
+Players: 16000, Bankrupt Count: 103, Bankrupt Rate: 0.64375%
+Players: 17000, Bankrupt Count: 6, Bankrupt Rate: 0.0352941%
+Players: 18000, Bankrupt Count: 205, Bankrupt Rate: 1.13889%
+Players: 19000, Bankrupt Count: 23, Bankrupt Rate: 0.121053%
+Players: 20000, Bankrupt Count: 197, Bankrupt Rate: 0.985%
