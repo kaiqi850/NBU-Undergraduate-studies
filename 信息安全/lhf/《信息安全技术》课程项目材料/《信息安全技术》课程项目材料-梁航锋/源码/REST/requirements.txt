@@ -1,0 +1,8 @@
+imageio==2.34.2
+matplotlib==3.8.3
+numpy==1.22.4
+opencv_python==4.6.0.66
+pandas==2.2.2
+PyQt5==5.15.10
+PyQt5_sip==12.13.0
+scikit_learn==1.4.1.post1

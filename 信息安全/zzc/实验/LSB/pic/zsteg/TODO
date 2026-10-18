@@ -1,0 +1,23 @@
+[ ] make 'extract' cmd stream its data directly to stdout
+[ ] gzip
+[ ] wbStego: 4bpp/8bpp BMP
+[ ] openstego
+[ ] tmp/steg*/*.bmp
+[ ] 4bpp/8bpp BMP
+[ ] http://search.cpan.org/~nwclark/Acme-Steganography-Image-Png-0.06/Png.pm
+[ ] http://registry.gimp.org/node/25988 - GIMP stego plugin
+[ ] zsteg-mask: normalize all to white
+[ ] stego by pixels of single color (hackquest on wiki)
+[ ] advices on what tool to use
+[ ] SilentEye
+[ ] chunks length check, as in pngcheck
+
+[ ] CLI: self-describe
+
+[+] auto pixel order for BMP
+[+] BMP
+[+] zlib
+
+[ ] detect AES from http://punkroy.drque.net/PNG_Steganography/Steganography5.php
+[?] http://tobyinkster.co.uk/article/steg-encode/
+[+] Sieve of Eratosthenes: http://wiki.cedricbonhomme.org/security:steganography

@@ -1,0 +1,13 @@
+?.rb
+coverage
+rdoc
+doc
+.yardoc
+.bundle
+pkg
+*.swp
+tmp/*
+*.bmp
+samples/hard
+samples/todo
+writers/*.png

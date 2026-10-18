@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>657</width>
+    <height>381</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="login">
+   <property name="styleSheet">
+    <string notr="true">QWidget{border-radius:10px;}</string>
+   </property>
+   <widget class="QLabel" name="label_logo1">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>320</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(:/picture/p3.png)</string>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::PlainText</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_logo2">
+    <property name="geometry">
+     <rect>
+      <x>572</x>
+      <y>323</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(:/picture/p4.png)</string>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::PlainText</enum>
+    </property>
+   </widget>
+   <widget class="QWidget" name="login_box" native="true">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>80</y>
+      <width>201</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <widget class="QLabel" name="label_loginBox">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>10</y>
+       <width>131</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border: 1px solid #FFFFFF; /* 黑色边框 */
+    border-radius: 0px; /* 圆角边框 */
+      /* 使用伪元素创建阴影 */
+    position: relative;
+    /* 设置阴影颜色和模糊半径 */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    background-image:url(:/picture/p2.png)
+</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="lineWidth">
+      <number>1</number>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_login">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>140</y>
+       <width>141</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border: 1px solid transparent; /* 黑色边框 */
+	background-color: transparent;
+    border-radius: 10px; /* 圆角边框 */
+    font: bold 14px; /* 字体样式 */
+    color: #333333; /* 文字颜色 */
+    padding: 5px; /* 内边距 */
+    shadow-color: #888888; /* 阴影颜色 */
+    shadow-offset: 2px 2px; /* 阴影偏移 */
+    shadow-blur: 5px; /* 阴影模糊度 */</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_name">
+     <property name="geometry">
+      <rect>
+       <x>41</x>
+       <y>72</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgb(238, 238, 238);
+border: none; /* 去除边框 */
+padding: 2px; /* 添加内边距 */
+
+            </string>
+     </property>
+     <property name="frame">
+      <bool>true</bool>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Normal</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_loginBox_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>165</y>
+       <width>61</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border: 1px solid #FFFFFF; /* 黑色边框 */
+    border-radius: 0px; /* 圆角边框 */
+      /* 使用伪元素创建阴影 */
+    position: relative;
+    /* 设置阴影颜色和模糊半径 */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    background-image:url(:/picture/p2.png)
+</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="lineWidth">
+      <number>1</number>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_password">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>100</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgb(238, 238, 238);
+border: none; /* 去除边框 */
+padding: 2px; /* 添加内边距 */
+
+            </string>
+     </property>
+     <property name="frame">
+      <bool>true</bool>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Password</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_loginBox_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>120</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border: 1px solid #FFFFFF; /* 黑色边框 */
+    border-radius: 0px; /* 圆角边框 */
+      /* 使用伪元素创建阴影 */
+    position: relative;
+    /* 设置阴影颜色和模糊半径 */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    background-image:url(:/picture/p2.png)
+</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="lineWidth">
+      <number>1</number>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>45</y>
+       <width>211</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>黑体</family>
+       <pointsize>5</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 5pt &quot;黑体&quot;;
+color: rgb(105, 105, 105);</string>
+     </property>
+     <property name="text">
+      <string>专注于可自修复的可逆隐写平台</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_back_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image:url(:/picture/login.jpg)</string>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::PlainText</enum>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_back_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>611</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>3</pointsize>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(:/picture/01badf5c1a0ce4a80121df90c4c030.png)</string>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::PlainText</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Button_close">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>20</y>
+      <width>12</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>12</width>
+      <height>13</height>
+     </size>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#Button_close{
+	border:none;
+	background-color:rgba(255, 255, 255, 0);
+	border-image:url(:/top/pictures/关闭.png);
+}
+QPushButton#Button_close:hover{
+	border-image:url(:/top/pictures/关闭 (1).png);
+	border-style:outset;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>11</width>
+      <height>11</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QWidget" name="shadow" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>611</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:8px;</string>
+    </property>
+   </widget>
+   <zorder>shadow</zorder>
+   <zorder>label_back_2</zorder>
+   <zorder>label_logo1</zorder>
+   <zorder>label_logo2</zorder>
+   <zorder>login_box</zorder>
+   <zorder>Button_close</zorder>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../pictures.qrc"/>
+  <include location="../ReversibleWatermark2.0(1)/ReversibleWatermark21/picture.qrc"/>
+ </resources>
+ <connections/>
+</ui>
