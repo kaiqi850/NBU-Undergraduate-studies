@@ -1,0 +1,1 @@
+<router-link to="/historydata">历史数据</router-link> 

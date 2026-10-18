@@ -1,0 +1,11 @@
+Model Information:
+* title:	Air condition Daikin
+* source:	https://sketchfab.com/3d-models/air-condition-daikin-26b0f7c8472741f4b85b889cf3b1d870
+* author:	maxsbond.work (https://sketchfab.com/maxsbond.work)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Air condition Daikin" (https://sketchfab.com/3d-models/air-condition-daikin-26b0f7c8472741f4b85b889cf3b1d870) by maxsbond.work (https://sketchfab.com/maxsbond.work) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

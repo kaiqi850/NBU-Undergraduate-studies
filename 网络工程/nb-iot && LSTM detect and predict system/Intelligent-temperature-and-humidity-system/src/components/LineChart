@@ -1,0 +1,95 @@
+<template>
+  <div>
+    <canvas ref="lineChart"></canvas>
+  </div>
+</template>
+
+<script>
+import { Chart, registerables } from "chart.js";
+
+// 注册 Chart.js 的所有模块
+Chart.register(...registerables);
+
+export default {
+  props: {
+    labels: {
+      type: Array,
+      required: true, // X 轴的标签（时间戳）
+    },
+    datasets: {
+      type: Array,
+      required: true, // 数据集，包含数据和样式信息
+    },
+  },
+  data() {
+    return {
+      chartInstance: null, // 保存 Chart.js 的实例
+    };
+  },
+  mounted() {
+    this.renderChart();
+  },
+  watch: {
+    // 当 props 数据发生变化时，更新图表
+    datasets: {
+      deep: true,
+      handler() {
+        if (this.chartInstance) {
+          this.chartInstance.data.datasets = this.datasets;
+          this.chartInstance.data.labels = this.labels;
+          this.chartInstance.update();
+        }
+      },
+    },
+  },
+  beforeDestroy() {
+    if (this.chartInstance) {
+      this.chartInstance.destroy(); // 销毁图表实例
+    }
+  },
+  methods: {
+    renderChart() {
+      const ctx = this.$refs.lineChart.getContext("2d");
+      this.chartInstance = new Chart(ctx, {
+        type: "line", // 折线图类型
+        data: {
+          labels: this.labels, // X 轴标签
+          datasets: this.datasets, // 数据集
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: true,
+              position: "top",
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: "时间",
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: "数值",
+              },
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    },
+  },
+};
+</script>
+
+<style scoped>
+canvas {
+  width: 100% !important;
+  height: 300px !important;
+}
+</style>

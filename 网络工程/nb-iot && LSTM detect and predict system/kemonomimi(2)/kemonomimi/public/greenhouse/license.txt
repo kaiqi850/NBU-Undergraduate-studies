@@ -1,0 +1,11 @@
+Model Information:
+* title:	Garden Greenhouse
+* source:	https://sketchfab.com/3d-models/garden-greenhouse-078e160c854b4f49b7b0da938e36a60a
+* author:	WizeyDizey (https://sketchfab.com/Kyle_Wisbey)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Garden Greenhouse" (https://sketchfab.com/3d-models/garden-greenhouse-078e160c854b4f49b7b0da938e36a60a) by WizeyDizey (https://sketchfab.com/Kyle_Wisbey) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

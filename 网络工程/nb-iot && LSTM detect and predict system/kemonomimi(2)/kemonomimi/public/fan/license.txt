@@ -1,0 +1,11 @@
+Model Information:
+* title:	Industrial Air Conditioner
+* source:	https://sketchfab.com/3d-models/industrial-air-conditioner-82797367c2b94fb1981e556577a3c898
+* author:	HusarL (https://sketchfab.com/HusarL)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Industrial Air Conditioner" (https://sketchfab.com/3d-models/industrial-air-conditioner-82797367c2b94fb1981e556577a3c898) by HusarL (https://sketchfab.com/HusarL) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

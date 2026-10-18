@@ -1,0 +1,111 @@
+// 
+// plugins-rtl.scss
+//
+
+input[type=checkbox].tui-full-calendar-checkbox-round+span {
+    margin-right: 0px;
+    margin-left: 8px;
+}
+
+.tui-full-calendar-time-schedule-content {
+    padding: 1px 3px 0 0;
+}
+
+// FLOT CHART
+
+.legendLabel {
+    padding-right: 5px !important;
+    padding-left: 20px;
+}
+
+// date-picker
+
+.mx-icon-calendar {
+    left: 10px !important;
+    right: auto !important;
+}
+
+// Bootstrap select
+
+.bootstrap-select {
+    .dropdown-toggle {
+        &:before {
+            float: left;
+        }
+
+        .filter-option {
+            text-align: right;
+        }
+
+        .filter-option-inner {
+            padding-right: 0;
+            padding-left: inherit;
+        }
+    }
+}
+
+// datatable
+
+.dataTables_wrapper {
+    .dataTables_filter {
+        text-align: left !important;
+
+        input {
+            margin-left: 0px !important;
+            margin-right: 0.5em;
+        }
+    }
+}
+
+
+.vue-slide-bar-separate {
+    direction: ltr;
+}
+
+// Responsive Table
+
+.table-rep-plugin {
+    .btn-group.pull-right {
+        float: left;
+    }
+
+    .checkbox-row {
+        label {
+            &:after {
+                margin-left: -22px;
+                top: -2px;
+            }
+        }
+    }
+}
+
+
+
+/* =============
+   Form wizard
+============= */
+
+.wizard {
+    >.steps {
+        .number {
+            margin-left: 10px;
+            margin-right: 0px;
+        }
+    }
+}
+
+// ck-editor
+
+.ck.ck-toolbar>.ck-toolbar__items {
+    flex-direction: row-reverse !important;
+}
+
+.ck.ck-editor__editable_inline {
+    text-align: right !important;
+}
+
+.ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_ne,
+.ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_se {
+    right: 0;
+    left: auto !important;
+}

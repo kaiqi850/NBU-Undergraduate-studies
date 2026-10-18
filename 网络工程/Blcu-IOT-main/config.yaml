@@ -1,0 +1,22 @@
+db:
+  mysql: #mysql的
+    host: localhost
+    port: 3306
+    username : 
+    password : 
+    db: 
+  redis:
+    db1 : 1
+    db2 : 2
+    host : 
+    port : 
+
+
+
+host: #EMQX提供的port
+  ip: 
+  port: 
+
+
+msg: #手机推送的sendkey
+  SendKey: KEY

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Floating iOT Edge Experimental Buoy
+* source:	https://sketchfab.com/3d-models/floating-iot-edge-experimental-buoy-5e298341d91446988ff85142f2884c51
+* author:	JFuzz (https://sketchfab.com/JFuzz)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Floating iOT Edge Experimental Buoy" (https://sketchfab.com/3d-models/floating-iot-edge-experimental-buoy-5e298341d91446988ff85142f2884c51) by JFuzz (https://sketchfab.com/JFuzz) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

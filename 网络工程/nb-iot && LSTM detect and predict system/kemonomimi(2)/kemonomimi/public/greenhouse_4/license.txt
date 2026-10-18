@@ -1,0 +1,11 @@
+Model Information:
+* title:	Greenhouse
+* source:	https://sketchfab.com/3d-models/greenhouse-bf455e7e9c434bd0abc2351fb3d24975
+* author:	Ally Furnish (https://sketchfab.com/furnisha)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Greenhouse" (https://sketchfab.com/3d-models/greenhouse-bf455e7e9c434bd0abc2351fb3d24975) by Ally Furnish (https://sketchfab.com/furnisha) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
