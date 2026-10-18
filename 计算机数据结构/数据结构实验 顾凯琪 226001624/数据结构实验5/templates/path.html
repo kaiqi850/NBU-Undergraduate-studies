@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Shortest Path Visualization with Baidu Map</title>
+    <style>
+        #map {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak={{ api_key }}"></script>
+</head>
+<body>
+    <h1>Shortest Path Visualization with Baidu Map</h1>
+    <div id="map"></div>
+    <script>
+        var map = new BMap.Map("map");
+        map.centerAndZoom(new BMap.Point(116.404, 39.915), 6); // 初始化地图，设置中心点和缩放级别
+        map.enableScrollWheelZoom(true);
+
+        // 省市坐标
+        var locations = {{ locations|tojson }};
+        var path = {{ path|tojson }};
+
+        // 创建标注
+        for (var city in locations) {
+            var point = new BMap.Point(locations[city].lng, locations[city].lat);
+            var marker = new BMap.Marker(point);
+            map.addOverlay(marker);
+            var label = new BMap.Label(city, {offset: new BMap.Size(20, -10)});
+            marker.setLabel(label);
+        }
+
+        // 绘制路径
+        for (var i = 0; i < path.length - 1; i++) {
+            var p1 = new BMap.Point(locations[path[i]].lng, locations[path[i]].lat);
+            var p2 = new BMap.Point(locations[path[i + 1]].lng, locations[path[i + 1]].lat);
+            var polyline = new BMap.Polyline([p1, p2], {strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5});
+            map.addOverlay(polyline);
+        }
+    </script>
+</body>
+</html>

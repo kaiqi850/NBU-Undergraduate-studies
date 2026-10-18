@@ -1,0 +1,74 @@
+1.安装内核编译所需的环境
+yum install ncurses-devel bison flex elfutils-libelf-devel openssl-devel bc git make gcc g++
+
+2.下载openEuler内核源码(直接从openEuler的码云仓库(https://gitee.com/openeuler/kernel/tree/openEuler-22.03-LTS-SP2/)拖到本地, Linux官方内核无法在openEuler系统正常使用)
+git clone https://gitee.com/openeuler/kernel.git
+
+3.切换到与当前系统相同的内核版本(请使用uname-a命令查看)
+cd kernel # git tag | grep 5.10.0-153 命令可以查看是否存在分支
+git checkout -b 5.10.0-153.12.0
+
+4.清理源码树
+make mrproper #清理已编译的内核：make clean
+
+5.此次实验不进行内核配置，直接拷贝当前系统的配置，感兴趣的可自行查找内核编译配置的资料。
+cp /boot/config-5.10.0-153.12.0.92.oe2203sp2.x86_64 .config
+
+6.加载拷贝的内核配置
+make menuconfig #选择：<Load> -> <Ok> -> <Save> -> <Exit>,在Save之前设置一下Local Version，版本编号为学号
+
+7.编译内核
+make #也可以使用make -j2，以使用2个核同时编译
+
+8.安装新内核
+make modules
+make modules_install 
+make install
+
+9.更新Grub
+grub2-mkconfig -o /boot/grub2/grub.cfg
+
+10.重启系统
+
+
+添加新的系统调用
+1)编写新添系统调用代码
+vi kernel/sys.c 
+# 在文件开头添加：#include<linux/linkage.h>
+# 在文件的末尾添加：
+/*A new syscall example!*/
+SYSCALL_DEFINE0(mysyscall){
+	printk(“Hello, This is GKQ226001624 System Call!”);
+	return 0;
+}
+# 注意：DEFINE后面是0，表示函数只有一个参数
+
+2)分配系统调用号，修改系统调用表
+vi arch/x86/entry/syscalls/syscall_64.tbl
+# 在common部分的最后添加如下内容(第1个数字是系统调用号，务必递增添加，根据实际修改)：
+451  64  oscsyscall sys_oscsyscall
+
+3)添加系统调用函数声明
+vi include/linux/syscalls.h
+......
+asmlinkage long sys_oscsyscall(void);
+......
+#搜索“Not a real system call”，找到对应位置添加
+#其中asmlinkage是一个编译指令，通知编译器仅从栈中提取该函数的参数。所有的系统调用都需要这个限定词。
+
+4)重新编译源码
+最前面步骤4-10，重复走一遍
+
+5)用户态测试系统调用
+#include <syscall.h>  
+#include <stdio.h>  
+#include <linux/unistd.h>  
+#define  __NR_hello  451
+
+int main() {
+	syscall(__NR_hello);
+	return 0;
+}
+
+#将上述代码保存为：test.c文件，然后编译：gcc -o test test.c
+#清理系统运行日志：dmesg -c，然后执行：./test，最后执行：dmesg，查看test程序输出。

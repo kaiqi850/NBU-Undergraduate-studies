@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Shortest Path Visualization with Baidu Map</title>
+    <style>
+        #map {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shortest Path Visualization with Baidu Map</h1>
+    <form action="/path" method="post">
+        <label for="start">Start:</label>
+        <select name="start" id="start">
+            {% for city in locations.keys() %}
+            <option value="{{ city }}">{{ city }}</option>
+            {% endfor %}
+        </select>
+        <label for="end">End:</label>
+        <select name="end" id="end">
+            {% for city in locations.keys() %}
+            <option value="{{ city }}">{{ city }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Find Path</button>
+    </form>
+</body>
+</html>
