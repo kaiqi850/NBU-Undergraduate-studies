@@ -1,0 +1,108 @@
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String inputExpression = scanner.next();
+        if (inputExpression.length() == 0 || inputExpression.charAt(inputExpression.length() - 1)!= '@') {
+            System.out.println("NO");
+            return;
+        }
+        inputExpression = inputExpression.substring(0, inputExpression.length() - 1);
+        String postfixExpression = "";
+        Stack<Character> operatorStack = new Stack<>();
+        boolean waitingForOperand = true;
+        for (int i = 0; i < inputExpression.length(); i++) {
+            char currentChar = inputExpression.charAt(i);
+            if (currentChar == ' ') {
+                continue;
+            }
+            if (currentChar >= '0' && currentChar <= '9') {
+                postfixExpression += currentChar;
+                waitingForOperand = false;
+            } else if (currentChar == '(') {
+                operatorStack.push(currentChar);
+                waitingForOperand = true;
+            } else if (currentChar == ')') {
+                boolean foundOpeningBracket = false;
+                while (!operatorStack.isEmpty()) {
+                    char poppedChar = operatorStack.pop();
+                    if (poppedChar == '(') {
+                        foundOpeningBracket = true;
+                        break;
+                    }
+                    postfixExpression += poppedChar;
+                }
+                if (!foundOpeningBracket) {
+                    System.out.println("NO");
+                    return;
+                }
+                waitingForOperand = false;
+            } else if (currentChar == '+' || currentChar == '-' || currentChar == '*' || currentChar == '/') {
+                if (waitingForOperand) {
+                    if (currentChar == '-') {
+                        postfixExpression += '0';
+                    } else {
+                        System.out.println("NO");
+                        return;
+                    }
+                }
+                while (!operatorStack.isEmpty() && precedence(operatorStack.peek()) >= precedence(currentChar)) {
+                    postfixExpression += operatorStack.pop();
+                }
+                operatorStack.push(currentChar);
+                waitingForOperand = true;
+            } else {
+                System.out.println("NO");
+                return;
+            }
+        }
+        while (!operatorStack.isEmpty()) {
+            char poppedChar = operatorStack.pop();
+            if (poppedChar == '(' || poppedChar == ')') {
+                System.out.println("NO");
+                return;
+            }
+            postfixExpression += poppedChar;
+        }
+        // Evaluate the postfix expression
+        Stack<Integer> evaluationStack = new Stack<>();
+        for (int i = 0; i < postfixExpression.length(); i++) {
+            char currentChar = postfixExpression.charAt(i);
+            if (currentChar >= '0' && currentChar <= '9') {
+                evaluationStack.push(currentChar - '0');
+            } else {
+                if (evaluationStack.size() < 2) {
+                    System.out.println("NO");
+                    return;
+                }
+                int secondOperand = evaluationStack.pop();
+                int firstOperand = evaluationStack.pop();
+                int result = 0;
+                if (currentChar == '+') result = firstOperand + secondOperand;
+                else if (currentChar == '-') result = firstOperand - secondOperand;
+                else if (currentChar == '*') result = firstOperand * secondOperand;
+                else if (currentChar == '/') {
+                    if (secondOperand == 0) {
+                        System.out.println("NO");
+                        return;
+                    }
+                    result = firstOperand / secondOperand;
+                }
+                evaluationStack.push(result);
+            }
+        }
+        if (evaluationStack.size()!= 1) {
+            System.out.println("NO");
+            return;
+        }
+        System.out.println(evaluationStack.pop());
+    }
+
+    public static int precedence(char operator) {
+        if (operator == '+' || operator == '-') return 1;
+        if (operator == '*' || operator == '/') return 2;
+        return 0;
+    }
+}s
