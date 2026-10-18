@@ -1,0 +1,1 @@
+使用register即为对应的总的cpu架构

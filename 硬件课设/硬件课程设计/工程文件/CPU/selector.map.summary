@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Oct 10 14:27:30 2023
+Quartus II 64-Bit Version : 9.1 Build 222 10/21/2009 SJ Full Version
+Revision Name : selector
+Top-level Entity Name : selector
+Family : Cyclone III
+Total logic elements : 36
+    Total combinational functions : 36
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 37
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

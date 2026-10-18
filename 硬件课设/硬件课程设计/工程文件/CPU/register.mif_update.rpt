@@ -1,0 +1,73 @@
+MIF/HEX Update report for register
+Tue Oct 31 15:25:34 2023
+Quartus II 64-Bit Version 9.1 Build 222 10/21/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. MIF/HEX Update Summary
+  3. MIF/HEX Update Processed Files
+  4. MIF/HEX Update Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------+
+; MIF/HEX Update Summary                                        ;
++-----------------------+---------------------------------------+
+; MIF/HEX Update Status ; Successful - Tue Oct 31 15:25:34 2023 ;
+; Revision Name         ; register                              ;
+; Top-level Entity Name ; CPU                                   ;
+; Family                ; Cyclone III                           ;
+; Device                ; EP3C16F484A7                          ;
++-----------------------+---------------------------------------+
+
+
++---------------------------------------------+
+; MIF/HEX Update Processed Files              ;
++---------------------------------------------+
+; File Name                                   ;
++---------------------------------------------+
+; D:/altera/quartus/register/instructions.mif ;
++---------------------------------------------+
+
+
++-------------------------+
+; MIF/HEX Update Messages ;
++-------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit MIF/HEX Update
+    Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
+    Info: Processing started: Tue Oct 31 15:25:34 2023
+Info: Command: quartus_cdb register -c register --update_mif
+Warning: Can't find Memory Initialization File register.mif -- skipped updates for this file
+Critical Warning: Memory depth (256) in the design file differs from memory depth (16) in the Memory Initialization File "instructions.mif" -- setting initial value for remaining addresses to 0
+Info: Processed the following Memory Initialization File(s)
+    Info: Processed Memory Initialization File D:/altera/quartus/register/instructions.mif
+Info: Quartus II 64-Bit MIF/HEX Update was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4440 megabytes
+    Info: Processing ended: Tue Oct 31 15:25:34 2023
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+

@@ -1,0 +1,75 @@
+Microsoft (R) Macro Assembler Version 6.11		    01/03/25 20:42:17
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				DATAS SEGMENT
+ 0000 14			    BUFFER1 DB 20
+ 0001  00			    	   DB 0
+ 0002  0014 [			    	   DB 20 DUP(0)
+        00
+       ]
+ 0016 14			    BUFFER2 DB 20
+ 0017  00			    	   DB 0
+ 0018  0014 [			    	   DB 20 DUP(0)
+        00
+       ]
+ 002C 4D 41 54 43 48 24		    STR1 DB 'MATCH$'
+ 0032				DATAS ENDS
+
+ 0000				STACKS SEGMENT
+				    ;此处输入堆栈段代码
+ 0000				STACKS ENDS
+
+ 0000				CODES SEGMENT
+				    ASSUME CS:CODES,DS:DATAS,SS:STACKS
+ 0000				START:
+ 0000  B8 ---- R		    MOV AX,DATAS
+ 0003  8E D8			    MOV DS,AX
+				    
+ 0005  B4 09			    MOV AH,09H
+ 0007  8D 16 002C R		    LEA DX,STR1
+ 000B  CD 21			    INT 21H
+				    
+ 000D  B4 0A			    MOV AH,0AH
+ 000F  8D 16 0000 R		    LEA DX,BUFFER1
+ 0013  CD 21			    INT 21H
+				    
+				    
+				    
+ 0015  B4 4C			    MOV AH,4CH
+ 0017  CD 21			    INT 21H
+				    
+ 0019				CODES ENDS
+				    END START
+
+
+
+
+
+
+Microsoft (R) Macro Assembler Version 6.11		    01/03/25 20:42:17
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODES  . . . . . . . . . . . . .	16 Bit	 0019	  Para	  Private 
+DATAS  . . . . . . . . . . . . .	16 Bit	 0032	  Para	  Private 
+STACKS . . . . . . . . . . . . .	16 Bit	 0000	  Para	  Private 
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+BUFFER1  . . . . . . . . . . . .	Byte	 0000	  DATAS	
+BUFFER2  . . . . . . . . . . . .	Byte	 0016	  DATAS	
+START  . . . . . . . . . . . . .	L Near	 0000	  CODES	
+STR1 . . . . . . . . . . . . . .	Byte	 002C	  DATAS	
+
+	   0 Warnings
+	   0 Errors

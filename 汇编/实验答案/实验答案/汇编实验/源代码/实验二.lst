@@ -1,0 +1,110 @@
+Microsoft (R) Macro Assembler Version 6.11		    01/03/25 20:29:07
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				DATAS SEGMENT
+ 0000 14			    BUFFER1 DB 20
+ 0001  00			    	   DB 0
+ 0002  0014 [			    	   DB 20 DUP(0)
+        00
+       ]
+ 0016 14			    BUFFER2 DB 20
+ 0017  00			    	   DB 0
+ 0018  0014 [			    	   DB 20 DUP(0)
+        00
+       ]
+ 002C 4D 41 54 43 48 24		    STR3 DB 'MATCH$'
+ 0032 4E 4F 4D 41 54 43		    STR4 DB 'NOMATCH$'
+       48 24
+ 003A				DATAS ENDS
+
+ 0000				STACKS SEGMENT
+				    ;此处输入堆栈段代码
+ 0000				STACKS ENDS
+
+ 0000				CODES SEGMENT
+				    ASSUME CS:CODES,DS:DATAS,SS:STACKS
+ 0000				START:
+ 0000  B8 ---- R		    MOV AX,DATAS
+ 0003  8E D8			    MOV DS,AX
+				    
+ 0005  B4 09			    MOV AH,09H
+ 0007  8D 16 002C R		    LEA DX,STR3
+ 000B  CD 21			    INT 21H
+				    
+ 000D  B4 0A				MOV AH,0AH
+ 000F  8D 16 0000 R			LEA DX,BUFFER1
+ 0013  CD 21				INT 21H
+ 0015  8B F2				MOV SI,DX
+
+ 0017  B4 09			    MOV AH,09H
+ 0019  8D 16 002C R		    LEA DX,STR3
+ 001D  CD 21			    INT 21H
+				    
+ 001F  B4 0A				MOV AH,0AH
+ 0021  8D 16 0016 R			LEA DX,BUFFER2
+ 0025  CD 21				INT 21H
+ 0027  8B FA			    MOV DI,DX
+				    
+ 0029				CPMLOOP:
+ 0029  8A 04				MOV AL,[SI]
+ 002B  8A 1D				MOV BL,[DI]
+ 002D  38 D8				CMP AL,BL
+ 002F  75 08				JNE ERR
+ 0031  46				INC SI
+ 0032  47				INC DI
+ 0033  3C 00				CMP AL,0
+ 0035  74 0B				JE MAT
+ 0037  EB F0				JMP CPMLOOP
+					
+					
+ 0039				ERR:
+ 0039  BA 002C R			MOV DX,OFFSET STR3
+ 003C  B4 09				MOV AH,09H
+ 003E  CD 21				INT 21H
+ 0040  EB 07				JMP END1
+				 
+ 0042				MAT:
+ 0042  BA 0032 R			MOV DX,OFFSET STR4
+ 0045  B4 09				MOV AH,09H
+ 0047  CD 21				INT 21H
+					
+ 0049				END1:
+ 0049  B4 4C				MOV AH,4CH
+ 004B  CD 21			    INT 21H
+				    
+ 004D				CODES ENDS
+				    END START
+
+
+Microsoft (R) Macro Assembler Version 6.11		    01/03/25 20:29:07
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODES  . . . . . . . . . . . . .	16 Bit	 004D	  Para	  Private 
+DATAS  . . . . . . . . . . . . .	16 Bit	 003A	  Para	  Private 
+STACKS . . . . . . . . . . . . .	16 Bit	 0000	  Para	  Private 
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+BUFFER1  . . . . . . . . . . . .	Byte	 0000	  DATAS	
+BUFFER2  . . . . . . . . . . . .	Byte	 0016	  DATAS	
+CPMLOOP  . . . . . . . . . . . .	L Near	 0029	  CODES	
+END1 . . . . . . . . . . . . . .	L Near	 0049	  CODES	
+ERR  . . . . . . . . . . . . . .	L Near	 0039	  CODES	
+MAT  . . . . . . . . . . . . . .	L Near	 0042	  CODES	
+START  . . . . . . . . . . . . .	L Near	 0000	  CODES	
+STR3 . . . . . . . . . . . . . .	Byte	 002C	  DATAS	
+STR4 . . . . . . . . . . . . . .	Byte	 0032	  DATAS	
+
+	   0 Warnings
+	   0 Errors

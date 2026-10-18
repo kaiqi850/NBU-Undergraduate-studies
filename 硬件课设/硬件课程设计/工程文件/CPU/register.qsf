@@ -1,0 +1,133 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2009 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 9.1 Build 222 10/21/2009 SJ Full Version
+# Date created = 16:28:18  September 26, 2023
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		register_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone III"
+set_global_assignment -name DEVICE EP3C16F484A7
+set_global_assignment -name TOP_LEVEL_ENTITY CPU
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 9.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:28:18  SEPTEMBER 26, 2023"
+set_global_assignment -name LAST_QUARTUS_VERSION 9.1
+set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 125
+set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
+set_global_assignment -name BDF_FILE register.bdf
+set_global_assignment -name BDF_FILE 4Bit.bdf
+set_global_assignment -name BDF_FILE 8Bit.bdf
+set_global_assignment -name BDF_FILE 32Bit.bdf
+set_global_assignment -name BDF_FILE test3232.bdf
+set_global_assignment -name BDF_FILE W32Bit.bdf
+set_global_assignment -name QIP_FILE ../libraries/mine/lpm_mux0.qip
+set_global_assignment -name BDF_FILE SHR.bdf
+set_global_assignment -name BDF_FILE SHL.bdf
+set_global_assignment -name BDF_FILE sign_extended.bdf
+set_global_assignment -name BDF_FILE zero_extended.bdf
+set_global_assignment -name BDF_FILE ext.bdf
+set_global_assignment -name BDF_FILE CMP.bdf
+set_global_assignment -name BDF_FILE Block3.bdf
+set_global_assignment -name QIP_FILE lpm_add_sub0.qip
+set_global_assignment -name BDF_FILE 8_3trans.bdf
+set_global_assignment -name BDF_FILE ALU.bdf
+set_global_assignment -name BDF_FILE storage_temp.bdf
+set_global_assignment -name BDF_FILE ADD1.bdf
+set_global_assignment -name BDF_FILE CPU.bdf
+set_global_assignment -name MIF_FILE instructions.mif
+set_global_assignment -name QIP_FILE lpm_ram_dq1.qip
+set_global_assignment -name QIP_FILE lpm_rom0.qip
+set_global_assignment -name BDF_FILE 666.bdf
+set_global_assignment -name QIP_FILE ../libraries/mine/lpm_mux1.qip
+set_global_assignment -name QIP_FILE ../libraries/mine/lpm_mux2.qip
+set_global_assignment -name QIP_FILE ../libraries/mine/lpm_mux3.qip
+set_global_assignment -name QIP_FILE lpm_mux1.qip
+set_global_assignment -name BDF_FILE PC.bdf
+set_global_assignment -name MIF_FILE register.mif
+set_global_assignment -name MIF_FILE data.mif
+set_global_assignment -name QIP_FILE lpm_rom1.qip
+set_global_assignment -name QIP_FILE lpm_ram_dq2.qip
+set_global_assignment -name VECTOR_WAVEFORM_FILE 0.vwf
+set_global_assignment -name SIMULATION_MODE FUNCTIONAL
+set_global_assignment -name VECTOR_WAVEFORM_FILE 11.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE 22.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE 3.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE 4.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE 5.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE 6.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE 7.vwf
+set_global_assignment -name BDF_FILE debug.bdf
+set_global_assignment -name BDF_FILE set0.bdf
+set_global_assignment -name VECTOR_WAVEFORM_FILE test.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE 022222.vwf
+set_global_assignment -name VECTOR_COMPARE_TRIGGER_MODE INPUT_EDGE
+set_global_assignment -name ZIP_VECTOR_WAVEFORM_FILE "C:/Users/ASUS/Desktop/register.sim.cvwf"
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE test.vwf
+set_global_assignment -name QIP_FILE lpm_mux2.qip
+set_global_assignment -name QIP_FILE lpm_ram_dq3.qip
+set_global_assignment -name VECTOR_WAVEFORM_FILE register.vwf
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
+set_global_assignment -name TIMEQUEST_DO_CCPP_REMOVAL ON
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_global_assignment -name LL_ENABLED ON -section_id 32Bit
+set_global_assignment -name LL_AUTO_SIZE ON -section_id 32Bit
+set_global_assignment -name LL_STATE FLOATING -section_id 32Bit
+set_global_assignment -name LL_RESERVED OFF -section_id 32Bit
+set_global_assignment -name LL_RESERVED_IS_LIMITED OFF -section_id 32Bit
+set_global_assignment -name LL_SOFT OFF -section_id 32Bit
+set_global_assignment -name LL_SECURITY_ROUTING_INTERFACE OFF -section_id 32Bit
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id 32Bit
+set_global_assignment -name LL_WIDTH 1 -section_id 32Bit
+set_global_assignment -name LL_HEIGHT 1 -section_id 32Bit
+set_global_assignment -name LL_ORIGIN X1_Y1 -section_id 32Bit
+set_global_assignment -name LL_MEMBER_OF 32Bit -section_id 32Bit
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment VREFGROUP_B8_N1 -to PC[0]
+set_location_assignment PIN_H2 -to CLK
+set_global_assignment -name MISC_FILE "D:/altera/quartus/register/register.dpf"
+set_location_assignment PIN_J1 -to result[0]
+set_location_assignment PIN_J2 -to result[1]
+set_location_assignment PIN_J3 -to result[2]
+set_location_assignment PIN_H1 -to result[3]
+set_location_assignment PIN_F2 -to result[4]
+set_location_assignment PIN_E1 -to result[5]
+set_location_assignment PIN_C1 -to result[6]
+set_location_assignment PIN_C2 -to result[7]
+set_location_assignment PIN_B2 -to result[8]
+set_location_assignment PIN_B1 -to result[9]
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

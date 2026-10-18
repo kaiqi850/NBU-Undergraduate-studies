@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="register">
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|PC:inst|BUSMUX:inst10|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|PC:inst|BUSMUX:inst1|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst12|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst21|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst30|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|lpm_mux2:inst6|lpm_mux:lpm_mux_component" CBX_FILE_NAME="mux_1re.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|sign_extended:inst1|BUSMUX:inst5|lpm_mux:$00000" CBX_FILE_NAME="mux_krc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|storage_temp:inst2|lpm_rom1:inst|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_pt91.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst15|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst24|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst33|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst42|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst51|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst60|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|BUSMUX:inst13|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|storage_temp:inst2|lpm_ram_dq3:inst1|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_5lf1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst69|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst78|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst87|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst96|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|BUSMUX:inst5|lpm_mux:$00000" CBX_FILE_NAME="mux_2qc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|ALU:inst11|lpm_add_sub0:inst|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_3qh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|PC:inst|W32Bit:inst6|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst18|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst27|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst36|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst45|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst54|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst63|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst72|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst81|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst90|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst9|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|ALU:inst11|lpm_mux0:inst10|lpm_mux:lpm_mux_component" CBX_FILE_NAME="mux_qrc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst99|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|lpm_mux2:inst102|lpm_mux:lpm_mux_component" CBX_FILE_NAME="mux_1re.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst39|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst48|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst57|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst66|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst75|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst84|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|test3232:inst6|W32Bit:inst93|BUSMUX:inst2|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|BUSMUX:inst12|lpm_mux:$00000" CBX_FILE_NAME="mux_irc.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
