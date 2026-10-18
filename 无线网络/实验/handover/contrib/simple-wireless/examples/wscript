@@ -1,0 +1,62 @@
+#
+# Copyright (C) 2015 Massachusetts Institute of Technology
+# All rights reserved.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License version 2 as
+# published by the Free Software Foundation;
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+
+## -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-
+
+def build(bld):
+    if not bld.env['ENABLE_EXAMPLES']:
+        return;
+
+    obj = bld.create_ns3_program('directional_test',
+        ['core', 'mobility', 'network', 'internet', 'olsr', 'applications', 'simple-wireless'])
+    obj.source = 'directional_test.cc'
+    
+    obj = bld.create_ns3_program('mixed_directional_network',
+        ['core', 'mobility', 'network', 'internet', 'olsr', 'applications', 'simple-wireless'])
+    obj.source = 'mixed_directional_network.cc'
+    
+    obj = bld.create_ns3_program('multiple_interface_example',
+        ['core', 'mobility', 'network', 'internet', 'olsr', 'applications', 'simple-wireless'])
+    obj.source = 'multiple_interface_example.cc'
+    
+    obj = bld.create_ns3_program('fixed_contention_test',
+        ['core', 'mobility', 'network', 'internet', 'olsr', 'applications', 'simple-wireless'])
+    obj.source = 'fixed_contention_test.cc'
+
+    obj = bld.create_ns3_program('error_model_test',
+        ['core', 'mobility', 'network', 'internet', 'olsr', 'applications', 'simple-wireless'])
+    obj.source = 'error_model_test.cc'
+
+    obj = bld.create_ns3_program('link-performance',
+        ['core', 'mobility', 'network', 'internet', 'applications', 'simple-wireless'])
+    obj.source = 'link-performance.cc'
+
+    obj = bld.create_ns3_program('mm1-queue', ['core', 'network', 'stats'])
+    obj.source = 'mm1-queue.cc'
+
+    obj = bld.create_ns3_program('slotted-aloha',
+        ['core', 'mobility', 'network', 'internet', 'applications', 'simple-wireless'])
+    obj.source = 'slotted-aloha.cc'
+
+    obj = bld.create_ns3_program('wifi-dcf',
+        ['core', 'mobility', 'network', 'internet', 'applications', 'wifi', 'simple-wireless', 'netanim'])
+    obj.source = 'wifi-dcf.cc'
+
+    obj = bld.create_ns3_program('lte-tcp-x2-handover',
+        ['core', 'mobility', 'network', 'internet', 'applications', 'lte', 'point-to-point'])
+    obj.source = 'lte-tcp-x2-handover.cc'

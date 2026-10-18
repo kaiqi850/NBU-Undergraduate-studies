@@ -1,0 +1,28 @@
+## -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-
+
+def build(bld):
+    obj = bld.create_ns3_module('simple-wireless', ['network', 'propagation'])
+    obj.source = [
+        'model/simple-wireless-net-device.cc',
+        'model/simple-wireless-channel.cc',
+        'model/drop-head-queue.cc',
+        'model/snr-per-error-model.cc',
+        'model/two-state-propagation-loss-model.cc',
+        ]
+    headers = bld(features='ns3header')
+    headers.module = 'simple-wireless'
+    headers.source = [
+        'model/simple-wireless-net-device.h',
+        'model/simple-wireless-channel.h',
+        'model/drop-head-queue.h',
+        'model/snr-per-error-model.h',
+        'model/two-state-propagation-loss-model.h',
+        ]
+    module_test = bld.create_ns3_module_test_library('simple-wireless')
+    module_test.source = [
+        'test/simple-wireless-test-suite.cc',
+        ]
+    
+    if (bld.env['ENABLE_EXAMPLES']):
+        bld.recurse('examples')
+

@@ -1,0 +1,145 @@
+diff -u -r ns-2.35-original/common/packet.h ns-2.35/common/packet.h
+--- ns-2.35-original/common/packet.h	2010-05-10 06:28:41.000000000 +0800
++++ ns-2.35/common/packet.h	2013-08-09 10:21:44.493171279 +0800
+@@ -69,6 +69,7 @@
+ #define HDR_CDIFF(p)    (hdr_cdiff::access(p))  /* chalermak's diffusion*/
+ //#define HDR_DIFF(p)     (hdr_diff::access(p))  /* SCADD's diffusion ported into ns */
+ #define HDR_LMS(p)		(hdr_lms::access(p))
++#define HDR_MAC802_11E(p) ((hdr_mac802_11e *)hdr_mac::access(p))
+ 
+ /* --------------------------------------------------------------------*/
+ 
+diff -u -r ns-2.35-original/mac/wireless-phy.h ns-2.35/mac/wireless-phy.h
+--- ns-2.35-original/mac/wireless-phy.h	2007-01-30 13:00:50.000000000 +0800
++++ ns-2.35/mac/wireless-phy.h	2013-08-09 10:19:48.184594542 +0800
+@@ -127,7 +127,7 @@
+ 	// Why phy has a node_ and this guy has it all over again??
+ //  	MobileNode* node_;         	// Mobile Node to which interface is attached .
+ 
+- 	enum ChannelStatus { SLEEP, IDLE, RECV, SEND };	
++ 	enum ChannelStatus { SLEEP, IDLE, RECV, SEND, RECVING, SENDING};	
+ 	bool node_on_; // on-off status of this node
+ 	Sleep_Timer sleep_timer_;
+ 	int status_;
+diff -u -r ns-2.35-original/Makefile.in ns-2.35/Makefile.in
+--- ns-2.35-original/Makefile.in	2011-10-24 00:29:54.000000000 +0800
++++ ns-2.35/Makefile.in	2013-08-09 10:12:30.722425277 +0800
+@@ -72,7 +72,7 @@
+ 	-I./diffusion3/lib/nr -I./diffusion3/ns \
+ 	-I./diffusion3/filter_core -I./asim/ -I./qs \
+ 	-I./diffserv -I./satellite \
+-	-I./wpan
++	-I./wpan -I./mac/802_11e
+ 
+ 
+ LIB	= \
+@@ -333,6 +333,8 @@
+ 	wpan/p802_15_4sscs.o wpan/p802_15_4timer.o \
+ 	wpan/p802_15_4trace.o wpan/p802_15_4transac.o \
+ 	apps/pbc.o \
++        mac/802_11e/mac-802_11e.o mac/802_11e/priq.o \
++        mac/802_11e/d-tail.o mac/802_11e/mac-timers_802_11e.o \
+ 	@V_STLOBJ@
+ 
+ 
+@@ -524,6 +526,7 @@
+ 	tcl/lib/ns-srcrt.tcl \
+ 	tcl/mcast/ns-lms.tcl \
+ 	tcl/lib/ns-qsnode.tcl \
++	mac/802_11e/priority.tcl \
+ 	@V_NS_TCL_LIB_STL@
+ 
+ $(GEN_DIR)ns_tcl.cc: $(NS_TCL_LIB)
+diff -u -r ns-2.35-original/tcl/lan/ns-mac.tcl ns-2.35/tcl/lan/ns-mac.tcl
+--- ns-2.35-original/tcl/lan/ns-mac.tcl	2005-05-26 05:19:44.000000000 +0800
++++ ns-2.35/tcl/lan/ns-mac.tcl	2013-08-09 10:18:23.720175700 +0800
+@@ -81,6 +81,24 @@
+ 	Mac/Multihop set hlen_ 16
+ }
+ 
++if [TclObject is-class Mac/802_11e] {
++	Mac/802_11e set delay_ 64us
++	Mac/802_11e set ifs_ 16us
++	Mac/802_11e set slotTime_ 16us
++	Mac/802_11e set cwmin_ 16
++	Mac/802_11e set cwmax_ 1024
++	Mac/802_11e set rtxLimit_ 16
++	Mac/802_11e set bssId_ -1
++	Mac/802_11e set sifs_ 8us
++	Mac/802_11e set pifs_ 12us
++	Mac/802_11e set difs_ 16us
++	Mac/802_11e set rtxAckLimit_ 1
++	Mac/802_11e set rtxRtsLimit_ 3
++        Mac/802_11e set basicRate_ 1Mb  ;# set this to 0 if want to use bandwidth_ for 
++        Mac/802_11e set dataRate_ 1Mb   ;# both control and data pkts
++	Mac/802_11e set cfb_ 0 ;# disables CFB
++}
++
+ # The MAC classifier (to demux incoming packets to the correct LL object)
+ Mac instproc classify-macs {peerinfo} {
+ 	set peerlabel [lindex $peerinfo 0]
+diff -u -r ns-2.35-original/tcl/lib/ns-default.tcl ns-2.35/tcl/lib/ns-default.tcl
+--- ns-2.35-original/tcl/lib/ns-default.tcl	2010-07-04 06:45:45.000000000 +0800
++++ ns-2.35/tcl/lib/ns-default.tcl	2013-08-09 10:14:37.759055213 +0800
+@@ -1590,3 +1590,19 @@
+ 
+ Agent/MDART set macFailed_ true
+ Agent/MDART set etxMetric_ true
++
++Queue/DTail set drop_front_ false
++Queue/DTail set summarystats_ false
++Queue/DTail set queue_in_bytes_ false
++Queue/DTail set mean_pktsize_ 500
++Queue/DTail/PriQ set Prefer_Routing_Protocols    1
++Queue/DTail/PriQ set Max_Levels   4 
++Queue/DTail/PriQ set Levels    4	
++Mac/802_11e set SlotTime_      0.000020    ;# 20us
++Mac/802_11e set SIFS_          0.000010    ;# 10us
++Mac/802_11e set PreambleLength_        144 ;# 144 bit
++Mac/802_11e set PLCPHeaderLength_      48  ;# 48 bits
++Mac/802_11e set PLCPDataRate_  1.0e6       ;# 1Mbps	       
++Mac/802_11e set RTSThreshold_  3000        ;# bytes
++Mac/802_11e set ShortRetryLimit_       7   ;# retransmittions
++Mac/802_11e set LongRetryLimit_        4   ;# retransmissions
+diff -u -r ns-2.35-original/tcl/lib/ns-lib.tcl ns-2.35/tcl/lib/ns-lib.tcl
+--- ns-2.35-original/tcl/lib/ns-lib.tcl	2010-05-10 06:28:41.000000000 +0800
++++ ns-2.35/tcl/lib/ns-lib.tcl	2013-08-09 10:13:38.762762677 +0800
+@@ -194,6 +194,7 @@
+ source ../mobility/dsdv.tcl
+ source ../mobility/dsr.tcl
+ source ../mobility/com.tcl
++source ../../mac/802_11e/priority.tcl
+ 
+ source ../plm/plm.tcl
+ source ../plm/plm-ns.tcl
+diff -u -r ns-2.35-original/tcl/lib/ns-mobilenode.tcl ns-2.35/tcl/lib/ns-mobilenode.tcl
+--- ns-2.35-original/tcl/lib/ns-mobilenode.tcl	2009-01-15 14:23:49.000000000 +0800
++++ ns-2.35/tcl/lib/ns-mobilenode.tcl	2013-08-09 10:10:50.577928693 +0800
+@@ -452,6 +452,9 @@
+ 	#
+ 	$ifq target $mac
+ 	$ifq set limit_ $qlen
++	if {$qtype == "Queue/DTail/PriQ" } {
++		priority ifq
++        }
+ 	if {$imepflag != ""} {
+ 		set drpT [$self mobility-trace Drop "IFQ"]
+ 	} else {
+@@ -493,12 +496,15 @@
+ 	}
+ 
+ 	set god_ [God instance]
+-    if {$mactype == "Mac/802_11Ext"} {
++    	if {$mactype == "Mac/802_11Ext"} {
+ 		$mac nodes [$god_ num_nodes]
+ 	}
+-    if {$mactype == "Mac/802_11"} {
++    	if {$mactype == "Mac/802_11"} {
+ 		$mac nodes [$god_ num_nodes]
+ 	}
++        if {$mactype == "Mac/802_11e"} {
++ 		$mac nodes [$god_ num_nodes]
++ 	}
+ 	#
+ 	# Network Interface
+ 	#
