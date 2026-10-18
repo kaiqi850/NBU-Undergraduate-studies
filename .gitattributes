@@ -1,0 +1,19 @@
+# 保持课程原始文件的换行和编码
+* -text
+
+# 已压缩的大文件无需做二进制差分
+*.pdf binary -delta
+*.pptx binary -delta
+*.docx binary -delta
+*.xlsx binary -delta
+*.ppsx binary -delta
+*.zip binary -delta
+*.rar binary -delta
+*.7z binary -delta
+*.png binary -delta
+*.jpg binary -delta
+*.jpeg binary -delta
+*.gif binary -delta
+*.mp4 binary -delta
+*.glb binary -delta
+*.bin binary -delta

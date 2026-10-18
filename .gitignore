@@ -1,0 +1,445 @@
+# 系统与编辑器临时文件
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+._*
+__MACOSX/
+*.lnk
+
+# 依赖、环境、缓存与构建输出
+node_modules/
+venv/
+.venv/
+env/
+site-packages/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.cache/
+.vs/
+.idea/
+.svn/
+.hg/
+Debug/
+Release/
+debug/
+release/
+ipch/
+dist/
+build/
+.next/
+.nuxt/
+coverage/
+# 本地凭据与环境配置
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+*.pem
+*.key
+*.pfx
+*.p12
+*.kdbx
+credentials.json
+secrets.json
+id_rsa
+id_ed25519
+# 安装包、编译与训练产物
+*.app
+*.bak
+*.bz2
+*.ckpt
+*.class
+*.db
+*.dll
+*.dmp
+*.exe
+*.exp
+*.gz
+*.h5
+*.hdf5
+*.idb
+*.ilk
+*.ipch
+*.jar
+*.lastbuildstate
+*.lib
+*.log
+*.map
+*.msi
+*.msix
+*.o
+*.obj
+*.onnx
+*.opensdf
+*.pch
+*.pdb
+*.pdiparams
+*.pdmodel
+*.pdopt
+*.pt
+*.pth
+*.pyc
+*.pyd
+*.pyo
+*.safetensors
+*.sdf
+*.sqlite
+*.sqlite3
+*.suo
+*.swp
+*.tar
+*.temp
+*.tgz
+*.tlog
+*.tmp
+*.user
+*.war
+*.xz
+*.y4m
+*.yuv
+cifar-10-batches-py/
+FashionMNIST/
+train-*-idx*
+t10k-*-idx*
+# 本次整理中明确忽略的资源和重复文档
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-0-37--PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-0-41--PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-0-47--PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-0-50--PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-1-10--PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-1-16--PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-1-27-1d32-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-1-35-1d32-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-1-39--PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-1-6--PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-2-13-2d69-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-2-14-2d69-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-2-18-2d69-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-2-30-2d69-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-2-54-3d98-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-2-55-3d98-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-2-59-3d98-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-2-6-2d69-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-3-40-6d54-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-3-41-6d54-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-3-43-6d54-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-3-47-6d54-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-3-48-6d54-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-4-16-7d83-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-4-17-7d83-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-4-58-916-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-4-59-9d10-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-5-1-9d16-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-5-10-9d16-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-5-11-9d16-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-5-12-9d16-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-5-13-916-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-5-14-9d16-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-5-41-10d12-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-5-54-10d12-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-5-9-9d16-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-6-23-11d7-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-6-33-11d7-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-6-34-117-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-7-18-12d89-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-7-19-12d89-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-7-25-12d89-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-7-28-12d89-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-7-53-14d18-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-7-59-14d18-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-8-22-14d79-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-8-28-15d41-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-8-29-15d41-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-8-33-15d42-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-8-37-15d42-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-8-38-15d42-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-8-39-15d42-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-8-55-15d69-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-8-56-15d8-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-8-57-15d93-PL.png
+/py/226001624\ 顾凯琪(上一个版本忘记改程序名字了，这是最新版)/外包程序/output/0-8-9-14d18-PL.png
+/信息安全/lhf/密码编码学与网络安全-原理与实践_9787121329210.pdf
+/嵌入式/课件/linux移植-案例.pptx
+/影视鉴赏/2020-06长镜头.pptx
+/毛概+习/毛概习特(2).pdf
+/网络工程/nb-iot\ &&\ LSTM\ detect\ and\ predict\ system/kemonomimi(2)/kemonomimi/public/greenhouse_5.glb
+/网络工程/nb-iot\ &&\ LSTM\ detect\ and\ predict\ system/kemonomimi(2)/kemonomimi/public/farmland/scene.bin
+/网络工程/nb-iot\ &&\ LSTM\ detect\ and\ predict\ system/kemonomimi(2)/kemonomimi/src/assets/video.mp4
+/网络工程/第三次实验/CP210x_Universal_Windows_Driver.zip
+/网络工程/第三次实验/备用项/DHT_sensor_library-1.4.6.zip
+/网络工程/第三次实验/备用项/esp8266-3.1.2.zip
+/网络工程/第三次实验/备用项/MFRC522-1.4.11.zip
+/网络工程/第三次实验/备用项/readme.txt
+/网络工程/第三次实验/管理库/readme.txt
+/网络工程/第三次实验/管理库/Adafruit_Unified_Sensor/Adafruit_Sensor.cpp
+/网络工程/第三次实验/管理库/Adafruit_Unified_Sensor/Adafruit_Sensor.h
+/网络工程/第三次实验/管理库/Adafruit_Unified_Sensor/library.properties
+/网络工程/第三次实验/管理库/Adafruit_Unified_Sensor/LICENSE.txt
+/网络工程/第三次实验/管理库/Adafruit_Unified_Sensor/README.md
+/网络工程/第三次实验/管理库/Adafruit_Unified_Sensor/examples/sensortest/sensortest.ino
+/网络工程/第三次实验/管理库/DHT_sensor_library/code-of-conduct.md
+/网络工程/第三次实验/管理库/DHT_sensor_library/CONTRIBUTING.md
+/网络工程/第三次实验/管理库/DHT_sensor_library/DHT.cpp
+/网络工程/第三次实验/管理库/DHT_sensor_library/DHT.h
+/网络工程/第三次实验/管理库/DHT_sensor_library/DHT_U.cpp
+/网络工程/第三次实验/管理库/DHT_sensor_library/DHT_U.h
+/网络工程/第三次实验/管理库/DHT_sensor_library/keywords.txt
+/网络工程/第三次实验/管理库/DHT_sensor_library/library.properties
+/网络工程/第三次实验/管理库/DHT_sensor_library/license.txt
+/网络工程/第三次实验/管理库/DHT_sensor_library/README.md
+/网络工程/第三次实验/管理库/DHT_sensor_library/examples/DHTtester/DHTtester.ino
+/网络工程/第三次实验/管理库/DHT_sensor_library/examples/DHT_Unified_Sensor/DHT_Unified_Sensor.ino
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/changes.txt
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/keywords.txt
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/library.json
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/library.properties
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/README.rst
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/UNLICENSE
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/DHT_sensor_library/code-of-conduct.md
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/DHT_sensor_library/CONTRIBUTING.md
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/DHT_sensor_library/DHT.cpp
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/DHT_sensor_library/DHT.h
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/DHT_sensor_library/DHT_U.cpp
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/DHT_sensor_library/DHT_U.h
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/DHT_sensor_library/keywords.txt
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/DHT_sensor_library/library.properties
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/DHT_sensor_library/license.txt
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/DHT_sensor_library/README.md
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/DHT_sensor_library/examples/DHTtester/DHTtester.ino
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/DHT_sensor_library/examples/DHT_Unified_Sensor/DHT_Unified_Sensor.ino
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/doc/PICCMemoryLayout.md
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/doc/rfidmifare.doc
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/doc/rfidmifare.pdf
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/doc/fritzing/Arduino-Uno-r3-with-RFID-RC522.fzz
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/doc/fritzing/Arduino-Uno-r3-with-RFID-RC522.png
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/doc/fritzing/RFID-RC522\ -\ Pin\ Layout.png
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/doc/fritzing/RFID-RC522-v2.fzpz
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/doc/fritzing/RFID-RC522-v2.png
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/doc/fritzing/RFID-RC522-v3.fzpz
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/doc/fritzing/RFID-RC522-v3.png
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/examples/ChangeUID/ChangeUID.ino
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/examples/DumpInfo/DumpInfo.ino
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/examples/firmware_check/firmware_check.ino
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/examples/FixBrickedUID/FixBrickedUID.ino
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/examples/MifareClassicValueBlock/MifareClassicValueBlock.ino
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/examples/MinimalInterrupt/MinimalInterrupt.ino
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/examples/Ntag216_AUTH/Ntag216_AUTH.ino
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/examples/ReadAndWrite/ReadAndWrite.ino
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/examples/ReadNUID/ReadNUID.ino
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/examples/ReadUidMultiReader/ReadUidMultiReader.ino
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/examples/RFID-Cloner/RFID-Cloner.ino
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/examples/rfid_default_keys/rfid_default_keys.ino
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/examples/rfid_read_personal_data/rfid_read_personal_data.ino
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/examples/rfid_write_personal_data/rfid_write_personal_data.ino
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/src/deprecated.h
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/src/MFRC522.cpp
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/src/MFRC522.h
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/src/MFRC522Extended.cpp
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/src/MFRC522Extended.h
+/网络工程/第三次实验/管理库/MFRC522-1.4.11/src/require_cpp11.h
+/网络工程/第三次实验/管理库/ThingSpeak/ESP-01_AT_Commands_Hardware_Serial_Hookup.pdf
+/网络工程/第三次实验/管理库/ThingSpeak/ESP-01_AT_Commands_SoftSerial_Hookup.pdf
+/网络工程/第三次实验/管理库/ThingSpeak/keywords.txt
+/网络工程/第三次实验/管理库/ThingSpeak/library.properties
+/网络工程/第三次实验/管理库/ThingSpeak/license.md
+/网络工程/第三次实验/管理库/ThingSpeak/README.md
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoEthernet/ReadField/ReadField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoEthernet/ReadField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoEthernet/WriteMultipleFields/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoEthernet/WriteMultipleFields/WriteMultipleFields.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoEthernet/WriteSingleField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoEthernet/WriteSingleField/WriteSingleField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKR1000/ReadField/ReadField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKR1000/ReadField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKR1000/ReadFieldSecure/ReadFieldSecure.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKR1000/ReadFieldSecure/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKR1000/ReadMultipleFields/ReadMultipleFields.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKR1000/ReadMultipleFields/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKR1000/ReadMultipleFieldsSecure/ReadMultipleFieldsSecure.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKR1000/ReadMultipleFieldsSecure/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKR1000/WriteMultipleFields/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKR1000/WriteMultipleFields/WriteMultipleFields.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKR1000/WriteMultipleFieldsSecure/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKR1000/WriteMultipleFieldsSecure/WriteMultipleFieldsSecure.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKR1000/WriteSingleField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKR1000/WriteSingleField/WriteSingleField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKR1000/WriteSingleFieldSecure/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKR1000/WriteSingleFieldSecure/WriteSingleFieldSecure.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRETHShield/ReadField/ReadField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRETHShield/ReadField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRETHShield/WriteMultipleFields/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRETHShield/WriteMultipleFields/WriteMultipleFields.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRETHShield/WriteSingleField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRETHShield/WriteSingleField/WriteSingleField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRGSM1400/ReadField/ReadField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRGSM1400/ReadField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRGSM1400/WriteMultipleFields/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRGSM1400/WriteMultipleFields/WriteMultipleFields.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRGSM1400/WriteSingleField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRGSM1400/WriteSingleField/WriteSingleField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRVIDOR4000/ReadField/ReadField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRVIDOR4000/ReadField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRVIDOR4000/WriteMultipleFields/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRVIDOR4000/WriteMultipleFields/WriteMultipleFields.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRVIDOR4000/WriteSingleField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRVIDOR4000/WriteSingleField/WriteSingleField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRWiFi1010/ReadField/ReadField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRWiFi1010/ReadField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRWiFi1010/WriteMultipleFields/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRWiFi1010/WriteMultipleFields/WriteMultipleFields.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRWiFi1010/WriteSingleField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoMKRWiFi1010/WriteSingleField/WriteSingleField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoUnoWiFi\ Rev2/ReadField/ReadField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoUnoWiFi\ Rev2/ReadField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoUnoWiFi\ Rev2/WriteMultipleFields/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoUnoWiFi\ Rev2/WriteMultipleFields/WriteMultipleFields.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoUnoWiFi\ Rev2/WriteSingleField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoUnoWiFi\ Rev2/WriteSingleField/WriteSingleField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoWiFiShield/ReadField/ReadField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoWiFiShield/ReadField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoWiFiShield/WriteMultipleFields/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoWiFiShield/WriteMultipleFields/WriteMultipleFields.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoWiFiShield/WriteSingleField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoWiFiShield/WriteSingleField/WriteSingleField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoWiFiShield101/ReadField/ReadField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoWiFiShield101/ReadField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoWiFiShield101/WriteMultipleFields/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoWiFiShield101/WriteMultipleFields/WriteMultipleFields.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoWiFiShield101/WriteSingleField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoWiFiShield101/WriteSingleField/WriteSingleField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoYun/ReadField/ReadField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoYun/ReadField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoYun/WriteMultipleFields/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoYun/WriteMultipleFields/WriteMultipleFields.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoYun/WriteSingleField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ArduinoYun/WriteSingleField/WriteSingleField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP32/ReadField/ReadField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP32/ReadField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP32/ReadFieldSecure/ReadFieldSecure.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP32/ReadFieldSecure/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP32/ReadMultipleFields/ReadMultipleFields.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP32/ReadMultipleFields/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP32/ReadMultipleFieldsSecure/ReadMultipleFieldsSecure.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP32/ReadMultipleFieldsSecure/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP32/WriteMultipleFields/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP32/WriteMultipleFields/WriteMultipleFields.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP32/WriteMultipleFieldsSecure/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP32/WriteMultipleFieldsSecure/WriteMultipleFieldsSecure.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP32/WriteSingleField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP32/WriteSingleField/WriteSingleField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP32/WriteSingleFieldSecure/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP32/WriteSingleFieldSecure/WriteSingleFieldSecure.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/program\ board\ directly/ReadField/ReadField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/program\ board\ directly/ReadField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/program\ board\ directly/ReadFieldSecure/ReadFieldSecure.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/program\ board\ directly/ReadFieldSecure/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/program\ board\ directly/ReadMultipleFields/ReadMultipleFields.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/program\ board\ directly/ReadMultipleFields/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/program\ board\ directly/ReadMultipleFieldsSecure/ReadMultipleFieldsSecure.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/program\ board\ directly/ReadMultipleFieldsSecure/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/program\ board\ directly/WriteMultipleFields/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/program\ board\ directly/WriteMultipleFields/WriteMultipleFields.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/program\ board\ directly/WriteMultipleFieldsSecure/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/program\ board\ directly/WriteMultipleFieldsSecure/WriteMultipleFieldsSecure.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/program\ board\ directly/WriteSingleField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/program\ board\ directly/WriteSingleField/WriteSingleField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/program\ board\ directly/WriteSingleFieldSecure/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/program\ board\ directly/WriteSingleFieldSecure/WriteSingleFieldSecure.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/via\ AT\ commands/ReadField/ReadField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/via\ AT\ commands/ReadField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/via\ AT\ commands/WriteMultipleFields/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/via\ AT\ commands/WriteMultipleFields/WriteMultipleFields.ino
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/via\ AT\ commands/WriteSingleField/secrets.h
+/网络工程/第三次实验/管理库/ThingSpeak/examples/ESP8266/via\ AT\ commands/WriteSingleField/WriteSingleField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/extras/test/testBegin/testBegin.ino
+/网络工程/第三次实验/管理库/ThingSpeak/extras/test/testReadField/testReadField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/extras/test/testReadMultiple/testReadMultiple.ino
+/网络工程/第三次实验/管理库/ThingSpeak/extras/test/testSecureConnect/testSecureConnect.ino
+/网络工程/第三次实验/管理库/ThingSpeak/extras/test/testSetFunctions/testSetFunctions.ino
+/网络工程/第三次实验/管理库/ThingSpeak/extras/test/testWriteField/testWriteField.ino
+/网络工程/第三次实验/管理库/ThingSpeak/src/ThingSpeak.cpp
+/网络工程/第三次实验/管理库/ThingSpeak/src/ThingSpeak.h
+/计算机操作系统/24WD操作系统做题本【选择题】(1)/【竖版做题本】24考研王道操作系统选择做题本.pdf
+/计算机操作系统/24WD操作系统做题本【选择题】(1)/【竖版速刷版】24考研王道操作系统选择做题本.pdf
+/计算机数据结构/24WD数据结构做题本【选择题】(1)/【竖版打印版】24考研王道数据结构选择做题本.pdf
+/计算机数据结构/24WD数据结构做题本【选择题】(1)/【竖版速刷版】24考研王道数据结构选择做题本.pdf
+/计算机组成原理/24WD计组做题本【选择题】(1)/【竖版做题本】24考研王道计组选择做题本.pdf
+/计算机组成原理/24WD计组做题本【选择题】(1)/【竖版速刷版】24考研王道计组选择做题本.pdf
+/计算机网络/24WD计网做题本【选择题】(1)/【竖版做题本】24考研王道计网选择做题本.pdf
+/计算机网络/24WD计网做题本【选择题】(1)/【竖版速刷版】24考研王道计网选择做题本.pdf
+/云计算/上届学长整理/曾少杰整理/校正后的《云计算》/03\ 理论——实验配套/2.1\ 鲲鹏云上应用高可用部署实验.pdf
+/云计算/上届学长整理/曾少杰整理/校正后的《云计算》/03\ 理论——实验配套/2.1\ 鲲鹏云上应用高可用部署实验.pptx
+/云计算/上届学长整理/曾少杰整理/校正后的《云计算》/03\ 理论——实验配套/2.2\ 鲲鹏云容器实验.pptx
+/云计算/上届学长整理/曾少杰整理/校正后的《云计算》/03\ 理论——实验配套/2.3\ 鲲鹏云大数据实验.pptx
+/云计算/上届学长整理/曾少杰整理/校正后的《云计算》/03\ 理论——实验配套/2.4\ 鲲鹏云手机实验.pdf
+/云计算/上届学长整理/曾少杰整理/校正后的《云计算》/03\ 理论——实验配套/2.4\ 鲲鹏云手机实验.pptx
+/云计算/上届学长整理/曾少杰整理/校正后的《云计算》/04\ 实验指导书/01\ 鲲鹏云上应用高可用部署.docx
+/云计算/上届学长整理/曾少杰整理/校正后的《云计算》/04\ 实验指导书/04\ 鲲鹏云手机实验/01\ 云手机连接指南.docx
+/云计算/上届学长整理/曾少杰整理/校正后的《云计算》/04\ 实验指导书/04\ 鲲鹏云手机实验/02\ 天气查询app设计.docx
+/云计算/上届学长整理/曾少杰整理/校正后的《云计算》/04\ 实验指导书/04\ 鲲鹏云手机实验/03\ 对话机器人app设计.docx
+/云计算/上届学长整理/曾少杰整理/校正后的《云计算》/04\ 实验指导书/04\ 鲲鹏云手机实验/04\ 云手机控制app开发.docx
+/云计算/上届学长整理/曾少杰整理/校正后的《云计算》/04\ 实验指导书/02\ 鲲鹏云容器实验（改）.docx
+/云计算/上届学长整理/曾少杰整理/校正后的《云计算》/04\ 实验指导书/01\ 鲲鹏云上应用高可用部署（改版）.docx
+/云计算/上届学长整理/曾少杰整理/校正后的《云计算》/04\ 实验指导书/03\ 鲲鹏云大数据实验/03\ 鲲鹏云大数据实验.docx
+/信息安全/zzc/实验/实验报告模板.doc
+/信息安全/PPTs/信息安全技术\ (2)/信息安全技术-12.pptx
+/信息安全/PPTs/信息安全技术\ (2)/信息安全技术-13.pptx
+/信息安全/PPTs/信息安全技术\ (2)/信息安全技术-14.pptx
+/大物/物理/练习2（力学、热学）(1).doc
+/大物/物理/大学物理B2\ 练习卷\ 答案.pdf
+/嵌入式/去年习题/嵌入式复习题（含答案）.pdf
+/嵌入式/课件/linux课件/linux课件/第10章、内核移植基础.doc
+/嵌入式/课件/linux课件/linux课件/第11章、内核移植实例.doc
+/嵌入式/课件/linux课件/linux课件/第12章、制作Linux根文件系统.doc
+/嵌入式/课件/linux课件/linux课件/第13章、内核调试技术X.doc
+/嵌入式/课件/linux课件/linux课件/第7章\ 交叉开发环境.ppt
+/嵌入式/课件/linux课件/linux课件/第8章\ Bootloader-n.ppt
+/嵌入式/课件/linux课件/linux课件/第9章、配置编译内核.doc
+/数字图像/遗产/数字图像课程/实验/实验三/《数字图像处理》实验三\ 学习示例.docx
+/数字图像/遗产/数字图像课程/实验/实验七/《数字图像处理》实验报告七\ 学习示例.docx
+/数字图像/遗产/数字图像课程/课件/1\ 课件-第一章.pdf
+/数据库原理/实验十三.doc
+/无线网络/实验/第5次实验/Teledesic/awk/gawk.pdf
+/无线网络/实验/第5次实验/Teledesic/awk/gnuplot.pdf
+/机器学习/lhf/机器学习/实验/lab2/Linear\ Dataset.xlsx
+/机器学习/lhf/机器学习/实验/lab2/Logistic\ Dataset.xlsx
+/机器学习/zdj/机器学习实验报告/实验课6\ K-means聚类/k-means.pdf
+/机器学习/lhf/MLProject/Lab7/K-means聚类资料/k-means.pdf
+/机器学习/lhf/机器学习/实验/lab8/pca_code.pdf
+/机器学习/zdj/机器学习实验报告/5.\ 实验课-支持向量机/5.\ 实验课-支持向量机.pdf
+/机器学习/zdj/机器学习实验报告/实验1\ Python基础与模型泛化性/1.\ Python基础与模型泛化性.pdf
+/机器学习/zdj/机器学习实验报告/实验课2\ 线性回归_西瓜成熟度线性模型预测及分类/2.\ 实验课-线性回归与逻辑回归.pdf
+/机器学习/zdj/机器学习实验报告/实验课3\ 神经网络_手写体识别/mindspore_mnist代码.pdf
+/机器学习/zdj/机器学习实验报告/实验课3\ 神经网络_手写体识别/神经网络与卷积神经网络.pdf
+/机器学习/zdj/机器学习实验报告/实验课7\ PCA降维/7.\ 实验课-PCA降维.pdf
+/汇编/实验答案/实验答案/TDX-PITE_80X86微机原理实验教程-学生版.pdf
+/汇编/汇编PPT/第1章\ 微型计算机概述.pdf
+/汇编/汇编PPT/第2章\ 80X86微处理器(完整版).pdf
+/电路/电路上/电路11年上半年/A卷电路原理（一）5.22.doc
+/电路/电路上/电路11年上半年/电路试卷答案A.doc
+/网络实习/梁航锋/网络集成实习/实验/《网络集成实习》实验报告一\ .docx
+/高数/高数试卷/高数复习试卷/同济六版高等数学(上)期中测试题_官方.pdf
+/高数/高数下/试卷1/试卷1试题.doc
+/高数/高数下/试卷1/试卷1答案.doc
+/高数/高数/大一下学期高等数学期末试题及答案__数套.doc
+/高数/高数/高等数学试卷_含答案_下册.doc
+/高数/高数试卷/高数复习试卷/2011高数A1B1期中测试题(1).doc
+/高数/高数试卷/高数复习试卷/宁波大学_高等数学_期末试卷B.doc
+/高数/高数下/试卷2/2004-2005学年高等数学A2期末考试试卷.doc
+/高数/高数下/试卷2/2004-2005学年高等数学A2期末考试试卷答案.doc
+/高数/高数试卷/高数复习试卷/期中测试卷\ (1).pdf
+/网络实习/person/code/mail.html
+/网络实习/person/code/mail_files/$.d2343.js.下载
+/网络实习/person/code/mail_files/@
+/网络实习/person/code/mail_files/iconfont.css
+/网络实习/person/code/mail_files/logo
+/网络实习/person/code/mail_files/X.blue.d2343.css
+/网络实习/person/code/mail_files/X.d2343-1.css
+/网络实习/person/code/mail_files/X.d2343-2.css
+/网络实习/person/code/mail_files/X.d2343-3.css
+网络实习/person/code/mail_files/
