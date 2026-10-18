@@ -17,3 +17,10 @@
 *.mp4 binary -delta
 *.glb binary -delta
 *.bin binary -delta
+
+# 新建的目录说明使用 LF
+README.md text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+整理说明.md text eol=lf
+docs/*.csv text eol=lf
